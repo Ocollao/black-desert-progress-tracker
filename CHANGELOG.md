@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-08-29
+
+### Added
+- User entity with email, username, password hash, avatar, admin status
+- Character entity with name, class (24 BDO classes), level, experience, gear score, season character
+- Database migrations for users and characters tables with proper indexes and foreign keys
+- User module with repository pattern (UserRepository, UserService, UserController)
+- Character module with repository pattern (CharacterRepository, CharacterService, CharacterController)
+- RESTful API endpoints for user and character management
+- Swagger documentation for new endpoints
+- bcrypt password hashing (cost factor 12)
+- TypeORM data source configuration for CLI migrations
+
+### Technical
+- Repository pattern implementation for data access layer
+- UUID primary keys for all entities
+- Cascade delete: characters deleted when user is deleted
+- Database indexes on email, username, character name, user_id
+- Migration-based schema management (no synchronize in production)
+- Type-safe relations with FindOptionsRelations
+
+### Documentation
+- Updated ROADMAP.md with v0.2 completion status
+- Updated CHANGELOG.md
+
 ## [0.1.0] - 2026-08-28
 
 ### Added

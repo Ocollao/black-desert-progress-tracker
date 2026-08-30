@@ -5,7 +5,7 @@
 | Version | Feature | Status | Tests | Git Tag |
 |---------|---------|--------|-------|---------|
 | V0.1 | Foundation | ✅ | ✅ | v0.1.0 |
-| V0.2 | Database Foundation | ⬜ | ⬜ | v0.2.0 |
+| V0.2 | Database Foundation | ✅ | ✅ | v0.2.0 |
 | V0.3 | Authentication | ⬜ | ⬜ | v0.3.0 |
 | V0.4 | Character Management | ⬜ | ⬜ | v0.4.0 |
 | V0.5 | Item Catalog | ⬜ | ⬜ | v0.5.0 |
@@ -45,13 +45,13 @@
 - [x] Environment configuration
 - [x] Documentation (README, ARCHITECTURE, CONTRIBUTING, ROADMAP)
 
-### V0.2 — Database Foundation
-- [ ] User entity
-- [ ] Character entity
-- [ ] Database migrations
-- [ ] Repository pattern setup
-- [ ] Database configuration
-- [ ] Migration tests
+### V0.2 — Database Foundation ✅ COMPLETED
+- [x] User entity
+- [x] Character entity
+- [x] Database migrations
+- [x] Repository pattern setup
+- [x] Database configuration
+- [x] Migration tests
 
 ### V0.3 — Authentication
 - [ ] User registration

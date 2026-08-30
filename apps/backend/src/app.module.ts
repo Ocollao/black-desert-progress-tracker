@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HealthController } from './health/health.controller';
 import { HealthService } from './health/health.service';
+import { UserModule } from './user/user.module';
+import { CharacterModule } from './character/character.module';
 
 @Module({
   imports: [
@@ -24,9 +26,13 @@ import { HealthService } from './health/health.service';
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: configService.get<string>('NODE_ENV') !== 'production',
         logging: configService.get<string>('NODE_ENV') === 'development',
+        migrations: [__dirname + '/database/migrations/*{.ts,.js}'],
+        migrationsRun: false,
       }),
-      inject: [ConfigService],
+      inject: [ConfigModule],
     }),
+    UserModule,
+    CharacterModule,
   ],
   controllers: [AppController, HealthController],
   providers: [AppService, HealthService],
