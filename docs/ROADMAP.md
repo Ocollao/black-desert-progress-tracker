@@ -6,7 +6,7 @@
 |---------|---------|--------|-------|---------|
 | V0.1 | Foundation | ✅ | ✅ | v0.1.0 |
 | V0.2 | Database Foundation | ✅ | ✅ | v0.2.0 |
-| V0.3 | Authentication | ⬜ | ⬜ | v0.3.0 |
+| V0.3 | Authentication | ✅ | ✅ | v0.3.0 |
 | V0.4 | Character Management | ⬜ | ⬜ | v0.4.0 |
 | V0.5 | Item Catalog | ⬜ | ⬜ | v0.5.0 |
 | V0.6 | Character Equipment | ⬜ | ⬜ | v0.6.0 |
@@ -53,14 +53,14 @@
 - [x] Database configuration
 - [x] Migration tests
 
-### V0.3 — Authentication
-- [ ] User registration
-- [ ] User login
-- [ ] JWT token generation
-- [ ] Password hashing (bcrypt)
-- [ ] Authentication guard
-- [ ] `/auth/me` endpoint
-- [ ] Unit & integration tests
+### V0.3 — Authentication ✅ COMPLETED
+- [x] User registration
+- [x] User login
+- [x] JWT token generation
+- [x] Password hashing (bcrypt)
+- [x] Authentication guard
+- [x] `/auth/me` endpoint
+- [x] Unit & integration tests
 
 ### V0.4 — Character Management
 - [ ] CRUD for characters
