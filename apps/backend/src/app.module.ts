@@ -30,7 +30,7 @@ import { AuthModule } from './auth/auth.module';
         migrations: [__dirname + '/database/migrations/*{.ts,.js}'],
         migrationsRun: false,
       }),
-      inject: [ConfigModule],
+      inject: [ConfigService],
     }),
     UserModule,
     CharacterModule,

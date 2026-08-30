@@ -7,6 +7,7 @@
 | V0.1 | Foundation | ✅ | ✅ | v0.1.0 |
 | V0.2 | Database Foundation | ✅ | ✅ | v0.2.0 |
 | V0.3 | Authentication | ✅ | ✅ | v0.3.0 |
+| V0.3.5 | System Startup & UI | ✅ | ✅ | v0.3.5 |
 | V0.4 | Character Management | ⬜ | ⬜ | v0.4.0 |
 | V0.5 | Item Catalog | ⬜ | ⬜ | v0.5.0 |
 | V0.6 | Character Equipment | ⬜ | ⬜ | v0.6.0 |
@@ -53,14 +54,19 @@
 - [x] Database configuration
 - [x] Migration tests
 
-### V0.3 — Authentication ✅ COMPLETED
-- [x] User registration
-- [x] User login
-- [x] JWT token generation
-- [x] Password hashing (bcrypt)
-- [x] Authentication guard
-- [x] `/auth/me` endpoint
-- [x] Unit & integration tests
+### V0.3.5 — System Startup & UI ✅ COMPLETED
+- [x] Docker Compose with PostgreSQL, Backend, Frontend
+- [x] Frontend routes (login, register, dashboard)
+- [x] Auth service with JWT token management
+- [x] Auth guard for protected routes
+- [x] HTTP interceptor for automatic token attachment
+- [x] Login page with validation
+- [x] Register page with validation
+- [x] Dashboard page with user info
+- [x] Proxy configuration for API calls
+- [x] Full stack running in Docker
+- [x] Health check endpoints
+- [x] Unit & integration tests for auth
 
 ### V0.4 — Character Management
 - [ ] CRUD for characters
