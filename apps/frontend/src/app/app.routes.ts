@@ -19,6 +19,32 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'characters',
+    canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./features/characters/list/character-list.component').then((m) => m.CharacterListComponent),
+      },
+      {
+        path: 'create',
+        loadComponent: () =>
+          import('./features/characters/form/character-form.component').then((m) => m.CharacterFormComponent),
+      },
+      {
+        path: 'edit/:id',
+        loadComponent: () =>
+          import('./features/characters/form/character-form.component').then((m) => m.CharacterFormComponent),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./features/characters/detail/character-detail.component').then((m) => m.CharacterDetailComponent),
+      },
+    ],
+  },
+  {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full',

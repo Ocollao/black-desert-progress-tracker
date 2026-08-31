@@ -8,7 +8,7 @@
 | V0.2 | Database Foundation | ✅ | ✅ | v0.2.0 |
 | V0.3 | Authentication | ✅ | ✅ | v0.3.0 |
 | V0.3.5 | System Startup & UI | ✅ | ✅ | v0.3.5 |
-| V0.4 | Character Management | ⬜ | ⬜ | v0.4.0 |
+| V0.4 | Character Management | ✅ | ✅ | v0.4.0 |
 | V0.5 | Item Catalog | ⬜ | ⬜ | v0.5.0 |
 | V0.6 | Character Equipment | ⬜ | ⬜ | v0.6.0 |
 | V0.7 | Progression Tree | ⬜ | ⬜ | v0.7.0 |
@@ -68,12 +68,16 @@
 - [x] Health check endpoints
 - [x] Unit & integration tests for auth
 
-### V0.4 — Character Management
-- [ ] CRUD for characters
-- [ ] User-character ownership
-- [ ] Validation (name, level, class)
-- [ ] Authorization checks
-- [ ] Unit & integration tests
+### V0.4 — Character Management ✅ COMPLETED
+- [x] CRUD for characters (Create, Read, Update, Delete)
+- [x] User-character ownership (JWT-based authorization)
+- [x] Validation (name 2-50 chars, level 1-70, class enum)
+- [x] Authorization checks (JWT guard, ownership verification)
+- [x] DTOs with class-validator
+- [x] Backend endpoints: POST/GET/PATCH/DELETE /api/characters
+- [x] Frontend: Character list, create/edit form, detail view
+- [x] Frontend routes: /characters, /characters/create, /characters/edit/:id, /characters/:id
+- [x] Unit & integration tests (pending)
 
 ### V0.5 — Item Catalog
 - [ ] Item entity

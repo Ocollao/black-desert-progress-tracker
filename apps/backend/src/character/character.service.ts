@@ -5,32 +5,18 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 import { CharacterRepository } from './character.repository';
-import { Character, CharacterClass } from './character.entity';
-
-export interface CreateCharacterDto {
-  name: string;
-  class: CharacterClass;
-  userId: string;
-  seasonCharacter?: string;
-  avatarUrl?: string;
-}
-
-export interface UpdateCharacterDto {
-  name?: string;
-  class?: CharacterClass;
-  level?: number;
-  experience?: number;
-  seasonCharacter?: string;
-  gearScore?: number;
-  avatarUrl?: string;
-  isActive?: boolean;
-}
+import { Character } from './character.entity';
+import { CreateCharacterDto } from './dto/create-character.dto';
+import { UpdateCharacterDto } from './dto/update-character.dto';
 
 @Injectable()
 export class CharacterService {
   constructor(private readonly characterRepository: CharacterRepository) {}
 
-  async create(createCharacterDto: CreateCharacterDto): Promise<Character> {
+  async create(
+    createCharacterDto: CreateCharacterDto,
+    userId: string,
+  ): Promise<Character> {
     const nameExists = await this.characterRepository.existsByName(
       createCharacterDto.name,
     );
@@ -40,6 +26,7 @@ export class CharacterService {
 
     const character = await this.characterRepository.create({
       ...createCharacterDto,
+      userId,
       level: 1,
       experience: 0,
       gearScore: 0,

@@ -1,0 +1,145 @@
+<div class="container mx-auto px-4 py-8 max-w-4xl">
+  @if (isLoading()) {
+    <div class="flex items-center justify-center py-12">
+      <svg class="animate-spin h-8 w-8 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+  } @else if (error()) {
+    <div class="text-center py-12 bg-red-50 border border-red-200 rounded-xl">
+      <p class="text-red-700">{{ error() }}</p>
+      <button (click)="router.navigate(['/characters'])" class="mt-4 text-primary-600 hover:text-primary-700 underline">
+        Volver a la lista
+      </button>
+    </div>
+  } @else if (character(); as char) {
+    <div class="mb-6 flex items-center gap-4">
+      <a routerLink="/characters" class="text-primary-600 hover:text-primary-700 flex items-center gap-1">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Volver
+      </a>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+      @if (char.avatarUrl) {
+        <img [src]="char.avatarUrl" [alt]="char.name" class="w-full h-64 object-cover" />
+      } @else {
+        <div class="w-full h-64 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
+          <span class="text-8xl font-bold text-white">{{ char.name.charAt(0) }}</span>
+        </div>
+      }
+
+      <div class="p-6">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <div class="flex items-center gap-4 mb-2">
+              <span class="text-4xl">{{ classIcons[char.class] }}</span>
+              <div>
+                <h1 class="text-3xl font-bold text-gray-900">{{ char.name }}</h1>
+                <p class="text-lg text-gray-600 capitalize">{{ classLabels[char.class] }}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 text-gray-600">
+              <span class="flex items-center gap-1 font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                Nivel {{ char.level }}
+              </span>
+              <span class="flex items-center gap-1 font-medium text-amber-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                GS {{ char.gearScore.toLocaleString() }}
+              </span>
+              @if (char.seasonCharacter) {
+                <span class="flex items-center gap-1 px-2 py-1 bg-amber-50 text-amber-700 rounded-full text-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  {{ char.seasonCharacter }}
+                </span>
+              }
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <button (click)="onEdit()" class="flex-1 py-2 px-4 text-sm font-medium text-primary-600 bg-primary-50 border border-primary-200 rounded-lg hover:bg-primary-100 transition-colors">
+              Editar
+            </button>
+            <button (click)="onDelete()" class="flex-1 py-2 px-4 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100 transition-colors">
+              Eliminar
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 pt-6 border-t border-gray-200">
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-gray-900">Progreso de Combate</h3>
+            <div class="bg-gray-50 rounded-lg p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-gray-600">Gear Score Actual</span>
+                <span class="font-bold text-2xl text-primary-600">{{ char.gearScore.toLocaleString() }}</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full bg-primary-600 rounded-full transition-all duration-500" [style.width.%]="Math.min(char.gearScore / 8000 * 100, 100)"></div>
+              </div>
+              <p class="text-sm text-gray-500 mt-2">Meta sugerida: 8,000 GS</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-lg font-semibold text-gray-900">Información General</h3>
+            <dl class="space-y-3">
+              <div class="flex justify-between">
+                <dt class="text-gray-600">Estado</dt>
+                <dd class="font-medium" [class.text-green-600]="char.isActive" [class.text-red-600]="!char.isActive">
+                  {{ char.isActive ? 'Activo' : 'Inactivo' }}
+                </dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-600">Experiencia</dt>
+                <dd class="font-medium text-gray-900">{{ char.experience.toLocaleString() }}</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-600">Creado el</dt>
+                <dd class="font-medium text-gray-900">{{ formatDate(char.createdAt) }}</dd>
+              </div>
+              <div class="flex justify-between">
+                <dt class="text-gray-600">Última actualización</dt>
+                <dd class="font-medium text-gray-900">{{ formatDate(char.updatedAt) }}</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Próximos Objetivos</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Alcanza 261 AP / 300 DP para contenido PvE básico
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Completa las misiones de Hadum para equipo mejorado
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Sube a nivel 62 para acceder a contenido de fin de juego
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  }
+</div>
