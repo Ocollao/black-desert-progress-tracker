@@ -2,11 +2,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { CharacterService, Character, CharacterClass } from '../character.service';
+import { CardComponent, BadgeComponent } from '../../../shared/index';
 
 @Component({
   selector: 'bdp-character-list',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, CardComponent, BadgeComponent],
   templateUrl: './character-list.component.html',
   styleUrl: './character-list.component.scss',
 })
@@ -54,11 +55,11 @@ export class CharacterListComponent implements OnInit {
     this.isLoading.set(true);
     this.error.set(null);
     this.characterService.getAll().subscribe({
-      next: (data) => {
+      next: (data: Character[]) => {
         this.characters.set(data);
         this.isLoading.set(false);
       },
-      error: (err) => {
+      error: (err: Error) => {
         this.error.set('Error al cargar los personajes');
         this.isLoading.set(false);
         console.error(err);

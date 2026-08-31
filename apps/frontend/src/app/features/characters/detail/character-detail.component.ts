@@ -1,12 +1,14 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CharacterService, Character, CharacterClass } from '../character.service';
+import { ButtonComponent, CardComponent, BadgeComponent, ProgressComponent, AvatarComponent } from '../../../shared/index';
 
 @Component({
   selector: 'bdp-character-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, ButtonComponent, CardComponent, BadgeComponent, ProgressComponent, AvatarComponent],
   templateUrl: './character-detail.component.html',
   styleUrl: './character-detail.component.scss',
 })

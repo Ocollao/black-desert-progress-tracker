@@ -1,14 +1,16 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { ButtonComponent, CardComponent, BadgeComponent, ProgressComponent, AvatarComponent } from '../../shared/index';
 
 @Component({
   selector: 'bdp-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, ButtonComponent, CardComponent, BadgeComponent, ProgressComponent, AvatarComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   private readonly authService = inject(AuthService);

@@ -9,7 +9,7 @@ import { CharacterService, CharacterClass, CreateCharacterRequest, UpdateCharact
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './character-form.component.html',
-  styleUrl: './character-form.component.scss',
+  styleUrls: ['./character-form.component.scss'],
 })
 export class CharacterFormComponent implements OnInit {
   private readonly characterService = inject(CharacterService);

@@ -1,147 +1,171 @@
-<div class="container mx-auto px-4 py-8 max-w-2xl">
-  <div class="mb-6">
-    <a routerLink="/characters" class="text-primary-600 hover:text-primary-700 text-sm font-medium flex items-center gap-1 mb-4 inline-block">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+<div class="min-h-screen relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-bdo-gold/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-bronze/3 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 opacity-5">
+      <svg class="w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="none">
+        <defs>
+          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="var(--color-bdo-gold)" stroke-width="0.3" stroke-opacity="0.08"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)"></rect>
       </svg>
-      Volver
-    </a>
-    <h1 class="text-3xl font-bold text-gray-900">
-      {{ isEditing() ? 'Editar Personaje' : 'Crear Personaje' }}
-    </h1>
-    <p class="mt-1 text-gray-600">
-      {{ isEditing() ? 'Modifica los datos de tu personaje' : 'Añade un nuevo personaje a tu cuenta' }}
-    </p>
+    </div>
   </div>
 
-  @if (error()) {
-    <div class="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg" role="alert">
-      {{ error() }}
-    </div>
-  }
-
-  <form (ngSubmit)="onSubmit()" class="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="md:col-span-2">
-        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre del personaje <span class="text-red-500">*</span></label>
-        <input
-          id="name"
-          type="text"
-          [(ngModel)]="name"
-          name="name"
-          required
-          minlength="2"
-          maxlength="50"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-          placeholder="Ej: MiGuerrero"
-        />
-        <p class="mt-1 text-xs text-gray-500">Entre 2 y 50 caracteres</p>
-      </div>
-
-      <div>
-        <label for="class" class="block text-sm font-medium text-gray-700 mb-1">Clase <span class="text-red-500">*</span></label>
-        <select
-          id="class"
-          [(ngModel)]="selectedClass"
-          name="class"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
-        >
-          @for (cls of classes; track cls.value) {
-            <option [value]="cls.value">{{ cls.label }}</option>
-          }
-        </select>
-      </div>
-
-      @if (isEditing()) {
-        <div>
-          <label for="level" class="block text-sm font-medium text-gray-700 mb-1">Nivel</label>
-          <input
-            id="level"
-            type="number"
-            [(ngModel)]="level"
-            name="level"
-            min="1"
-            max="70"
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
-
-        <div>
-          <label for="experience" class="block text-sm font-medium text-gray-700 mb-1">Experiencia</label>
-          <input
-            id="experience"
-            type="number"
-            [(ngModel)]="experience"
-            name="experience"
-            min="0"
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
-      }
-
-      <div>
-        <label for="gearScore" class="block text-sm font-medium text-gray-700 mb-1">Gear Score</label>
-        <input
-          id="gearScore"
-          type="number"
-          [(ngModel)]="gearScore"
-          name="gearScore"
-          min="0"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-        />
-      </div>
-
-      <div>
-        <label for="seasonCharacter" class="block text-sm font-medium text-gray-700 mb-1">Personaje de Temporada</label>
-        <input
-          id="seasonCharacter"
-          type="text"
-          [(ngModel)]="seasonCharacter"
-          name="seasonCharacter"
-          maxlength="100"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-          placeholder="Ej: Season 28"
-        />
-      </div>
-
-      <div class="md:col-span-2">
-        <label for="avatarUrl" class="block text-sm font-medium text-gray-700 mb-1">URL del Avatar</label>
-        <input
-          id="avatarUrl"
-          type="url"
-          [(ngModel)]="avatarUrl"
-          name="avatarUrl"
-          maxlength="255"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-          placeholder="https://ejemplo.com/avatar.png"
-        />
-        <p class="mt-1 text-xs text-gray-500">Opcional - URL de una imagen para el personaje</p>
-      </div>
+  <div class="relative z-10 max-w-2xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-8 animate-fade-in-up">
+      <a routerLink="/characters" class="btn-ghost text-sm mb-6 inline-flex">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Volver
+      </a>
+      <h1 class="text-3xl font-bold text-gradient-gold mb-2">
+        {{ isEditing() ? 'Editar Personaje' : 'Crear Personaje' }}
+      </h1>
+      <p class="text-bdo-text-secondary">
+        {{ isEditing() ? 'Modifica los datos de tu aventurero' : 'Añade un nuevo personaje a tu cuenta' }}
+      </p>
     </div>
 
-    <div class="flex justify-end gap-3 pt-4 border-t border-gray-200">
-      <button
-        type="button"
-        (click)="onCancel()"
-        class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-      >
-        Cancelar
-      </button>
-      <button
-        type="submit"
-        [disabled]="!isFormValid() || isSubmitting() || isLoading()"
-        class="px-4 py-2 text-sm font-medium text-white bg-primary-600 border border-transparent rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-      >
-        @if (isSubmitting()) {
-          <svg class="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    @if (error()) {
+      <div class="mb-6 bg-bdo-red/10 border border-bdo-red/30 text-bdo-red px-4 py-3 rounded-lg animate-fade-in-up" role="alert">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
-          Guardando...
-        } @else {
-          {{ isEditing() ? 'Actualizar' : 'Crear' }}
+          {{ error() }}
+        </div>
+      </div>
+    }
+
+    <form (ngSubmit)="onSubmit()" class="bdo-frame p-6 space-y-6 animate-fade-in-up stagger-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="md:col-span-2">
+          <label for="name" class="input-label">Nombre del personaje <span class="text-bdo-red">*</span></label>
+          <input
+            id="name"
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+            required
+            minlength="2"
+            maxlength="50"
+            class="input"
+            placeholder="Ej: MiGuerrero"
+          />
+          <p class="input-help">Entre 2 y 50 caracteres</p>
+        </div>
+
+        <div>
+          <label for="class" class="input-label">Clase <span class="text-bdo-red">*</span></label>
+          <select
+            id="class"
+            [(ngModel)]="selectedClass"
+            name="class"
+            class="select"
+          >
+            @for (cls of classes; track cls.value) {
+              <option [value]="cls.value">{{ cls.label }}</option>
+            }
+          </select>
+        </div>
+
+        @if (isEditing()) {
+          <div>
+            <label for="level" class="input-label">Nivel</label>
+            <input
+              id="level"
+              type="number"
+              [(ngModel)]="level"
+              name="level"
+              min="1"
+              max="70"
+              class="input"
+            />
+          </div>
+
+          <div>
+            <label for="experience" class="input-label">Experiencia</label>
+            <input
+              id="experience"
+              type="number"
+              [(ngModel)]="experience"
+              name="experience"
+              min="0"
+              class="input"
+            />
+          </div>
         }
-      </button>
-    </div>
-  </form>
+
+        <div>
+          <label for="gearScore" class="input-label">Gear Score</label>
+          <input
+            id="gearScore"
+            type="number"
+            [(ngModel)]="gearScore"
+            name="gearScore"
+            min="0"
+            class="input"
+          />
+        </div>
+
+        <div>
+          <label for="seasonCharacter" class="input-label">Personaje de Temporada</label>
+          <input
+            id="seasonCharacter"
+            type="text"
+            [(ngModel)]="seasonCharacter"
+            name="seasonCharacter"
+            maxlength="100"
+            class="input"
+            placeholder="Ej: Season 28"
+          />
+        </div>
+
+        <div class="md:col-span-2">
+          <label for="avatarUrl" class="input-label">URL del Avatar</label>
+          <input
+            id="avatarUrl"
+            type="url"
+            [(ngModel)]="avatarUrl"
+            name="avatarUrl"
+            maxlength="255"
+            class="input"
+            placeholder="https://ejemplo.com/avatar.png"
+          />
+          <p class="input-help">Opcional - URL de una imagen para el personaje</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-3 pt-6 border-t border-bdo-border-gold/20">
+        <button
+          type="button"
+          (click)="onCancel()"
+          class="btn-secondary"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          [disabled]="!isFormValid() || isSubmitting() || isLoading()"
+          class="btn-primary"
+        >
+          @if (isSubmitting()) {
+            <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Guardando...
+          } @else {
+            {{ isEditing() ? 'Actualizar' : 'Crear' }}
+          }
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

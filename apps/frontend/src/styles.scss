@@ -1,36 +1,497 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1a1a2e;
-  --color-secondary: #16213e;
-  --color-accent: #e94560;
-  --color-gold: #ffd700;
-  --color-silver: #c0c0c0;
-  --color-bronze: #cd7f32;
+  /* BDO Color Palette - Dark Fantasy Theme */
+  --color-bdo-bg: #0a0a0c;
+  --color-bdo-bg-elevated: #121216;
+  --color-bdo-bg-card: #1a1a1f;
+  --color-bdo-border: #2a2a30;
+  --color-bdo-border-gold: #c9a84c;
+  --color-bdo-border-gold-dim: #8b7333;
+
+  --color-bdo-gold: #d4a82a;
+  --color-bdo-gold-bright: #f0c840;
+  --color-bdo-gold-dim: #a68620;
+  --color-bdo-gold-light: #f5e6b8;
+
+  --color-bdo-silver: #b8bcc0;
+  --color-bdo-silver-dim: #8a8e92;
+  --color-bdo-bronze: #c47b3a;
+  --color-bdo-bronze-dim: #965d2d;
+
+  --color-bdo-red: #c0392b;
+  --color-bdo-red-dim: #8b251a;
+  --color-bdo-green: #27ae60;
+  --color-bdo-green-dim: #1e8a49;
+  --color-bdo-blue: #2980b9;
+  --color-bdo-blue-dim: #1f6a94;
+
+  --color-bdo-text-primary: #f0e6d2;
+  --color-bdo-text-secondary: #b8a992;
+  --color-bdo-text-muted: #7a7060;
+  --color-bdo-text-dark: #1a1510;
+
+  --color-bdo-primary: var(--color-bdo-gold);
+  --color-bdo-secondary: var(--color-bdo-bronze);
+  --color-bdo-accent: var(--color-bdo-gold-bright);
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-bdo-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-bdo-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-bdo-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-bdo-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --shadow-bdo-gold: 0 0 20px rgba(212, 168, 42, 0.3);
+  --shadow-bdo-gold-lg: 0 0 40px rgba(212, 168, 42, 0.4);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Z-Indices */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
 }
 
 @layer base {
   * {
-    @apply border-gray-700;
+    @apply border-bdo-border;
+    box-sizing: border-box;
   }
-  
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-gray-950 text-gray-100 antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    @apply bg-bdo-bg text-bdo-text-primary antialiased;
+    font-family: 'Inter', 'Crimson Text', Georgia, serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "liga", "calt";
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(212, 168, 42, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(196, 123, 58, 0.03) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', 'IM Fell English', 'Crimson Text', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-bdo-text-primary);
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  h5 { @apply text-lg md:text-xl; }
+  h6 { @apply text-base md:text-lg; }
+
+  p { @apply leading-relaxed text-bdo-text-secondary; }
+
+  a { @apply text-bdo-gold transition-colors duration-200 hover:text-bdo-gold-bright; }
+
+  ::selection {
+    @apply bg-bdo-gold/30 text-bdo-text-primary;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { @apply w-2; }
+  ::-webkit-scrollbar-track { @apply bg-bdo-bg-elevated; }
+  ::-webkit-scrollbar-thumb { @apply bg-bdo-border-gold-dim rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-bdo-gold; }
+  ::-webkit-scrollbar-corner { @apply bg-bdo-bg-elevated; }
+}
+
+@layer components {
+  /* BDO Frame / Panel */
+  .bdo-frame {
+    @apply relative bg-bdo-bg-card border border-bdo-border-gold/30 rounded-xl overflow-hidden;
+    background-image:
+      linear-gradient(180deg, rgba(212, 168, 42, 0.02) 0%, transparent 50%),
+      linear-gradient(90deg, rgba(196, 123, 58, 0.02) 0%, transparent 50%);
+    box-shadow: var(--shadow-bdo-md);
+  }
+
+  .bdo-frame::before {
+    content: '';
+    @apply absolute inset-0 border-2 rounded-xl;
+    border-image: linear-gradient(135deg, var(--color-bdo-gold) 0%, var(--color-bdo-bronze) 50%, var(--color-bdo-gold) 100%) 1;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .bdo-frame--gold {
+    @apply border-bdo-gold/50;
+    box-shadow: var(--shadow-bdo-md), var(--shadow-bdo-gold);
+  }
+
+  .bdo-frame--bronze {
+    @apply border-bdo-bronze/50;
+  }
+
+  /* Ornamental Corners */
+  .bdo-corners {
+    @apply relative;
+  }
+
+  .bdo-corners::before,
+  .bdo-corners::after,
+  .bdo-corners > *::before,
+  .bdo-corners > *::after {
+    content: '';
+    @apply absolute w-4 h-4 border-2 border-bdo-gold/50;
+  }
+
+  .bdo-corners::before { @apply top-0 left-0 rounded-tl-xl border-r-0 border-b-0; }
+  .bdo-corners::after { @apply top-0 right-0 rounded-tr-xl border-l-0 border-b-0; }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bdo-bg disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-bdo-gold to-bdo-bronze text-bdo-text-dark border-0 hover:from-bdo-gold-bright hover:to-bdo-gold focus-visible:ring-bdo-gold shadow-bdo-gold;
+  }
+
+  .btn-primary:active {
+    @apply scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-bdo-bg-elevated text-bdo-text-primary border border-bdo-border-gold/50 hover:border-bdo-gold hover:bg-bdo-bg-card focus-visible:ring-bdo-gold;
+  }
+
+  .btn-danger {
+    @apply btn bg-gradient-to-r from-bdo-red to-bdo-red-dim text-white border-0 hover:from-bdo-red-dim hover:to-bdo-red focus-visible:ring-bdo-red;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-bdo-text-secondary hover:text-bdo-gold hover:bg-bdo-bg-elevated border-0 focus-visible:ring-bdo-gold;
+  }
+
+  .btn-icon {
+    @apply btn p-2.5;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .btn-lg {
+    @apply px-8 py-3.5 text-base;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full px-4 py-3 bg-bdo-bg-elevated border border-bdo-border-gold/30 rounded-lg text-bdo-text-primary placeholder-bdo-text-muted transition-all duration-200 focus:outline-none focus:border-bdo-gold focus:ring-2 focus:ring-bdo-gold/20 focus:bg-bdo-bg-card;
+  }
+
+  .input-error {
+    @apply border-bdo-red focus:border-bdo-red focus:ring-bdo-red/20;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-bdo-text-secondary mb-1.5;
+  }
+
+  .input-help {
+    @apply mt-1.5 text-xs text-bdo-text-muted;
+  }
+
+  .input-error-text {
+    @apply mt-1.5 text-xs text-bdo-red;
+  }
+
+  .select {
+    @apply input appearance-none bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23b8a992%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E')] bg-right-4 bg-no-repeat pr-10;
+  }
+
+  /* Cards */
+  .card {
+    @apply bdo-frame p-6;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-bdo-gold/50 hover:shadow-bdo-lg hover:shadow-bdo-gold hover:-translate-y-1;
+  }
+
+  .card-interactive {
+    @apply card-hover cursor-pointer;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-gold {
+    @apply badge bg-bdo-gold/15 text-bdo-gold border border-bdo-gold/30;
+  }
+
+  .badge-bronze {
+    @apply badge bg-bdo-bronze/15 text-bdo-bronze border border-bdo-bronze/30;
+  }
+
+  .badge-silver {
+    @apply badge bg-bdo-silver/15 text-bdo-silver border border-bdo-silver/30;
+  }
+
+  .badge-red {
+    @apply badge bg-bdo-red/15 text-bdo-red border border-bdo-red/30;
+  }
+
+  .badge-green {
+    @apply badge bg-bdo-green/15 text-bdo-green border border-bdo-green/30;
+  }
+
+  /* Progress Bar */
+  .progress {
+    @apply h-2 bg-bdo-bg-elevated rounded-full overflow-hidden;
+  }
+
+  .progress-bar {
+    @apply h-full bg-gradient-to-r from-bdo-gold to-bdo-bronze rounded-full transition-all duration-500 ease-out;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    @apply absolute z-[var(--z-tooltip)] px-3 py-2 text-xs font-medium text-bdo-text-dark bg-bdo-gold rounded-lg shadow-bdo-lg opacity-0 invisible transition-all duration-200 pointer-events-none whitespace-nowrap;
+  }
+
+  .tooltip::before {
+    content: '';
+    @apply absolute bottom-full left-1/2 -translate-x-1/2 border-5 border-transparent border-b-bdo-gold;
+  }
+
+  .has-tooltip:hover .tooltip,
+  .has-tooltip:focus .tooltip {
+    @apply opacity-100 visible translate-y-[-8px];
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-[var(--z-modal-backdrop)] transition-opacity duration-300;
+  }
+
+  .modal {
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[var(--z-modal)] w-full max-w-lg bdo-frame p-6 transform transition-all duration-300;
+  }
+
+  /* Table */
+  .table-container {
+    @apply overflow-x-auto rounded-lg border border-bdo-border-gold/20;
+  }
+
+  .table {
+    @apply w-full text-sm;
+  }
+
+  .table th {
+    @apply px-4 py-3 text-left font-semibold text-bdo-gold bg-bdo-bg-elevated border-b border-bdo-border-gold/20 uppercase tracking-wider text-xs;
+  }
+
+  .table td {
+    @apply px-4 py-3 border-b border-bdo-border/50 text-bdo-text-secondary;
+  }
+
+  .table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .table tr:hover td {
+    @apply bg-bdo-bg-elevated/50;
+  }
+
+  /* Tabs */
+  .tabs {
+    @apply flex gap-1 bg-bdo-bg-elevated rounded-lg p-1 border border-bdo-border-gold/20;
+  }
+
+  .tab {
+    @apply px-4 py-2 rounded-md text-sm font-medium text-bdo-text-muted transition-all duration-200 hover:text-bdo-text-primary hover:bg-bdo-bg-card;
+  }
+
+  .tab-active {
+    @apply tab text-bdo-text-dark bg-gradient-to-r from-bdo-gold to-bdo-bronze shadow-bdo-gold;
+  }
+
+  /* Dropdown */
+  .dropdown {
+    @apply absolute z-[var(--z-dropdown)] min-w-[180px] bdo-frame py-2 shadow-bdo-xl;
+  }
+
+  .dropdown-item {
+    @apply w-full px-4 py-2.5 text-left text-sm text-bdo-text-secondary hover:bg-bdo-bg-elevated hover:text-bdo-gold transition-colors duration-150;
+  }
+
+  .dropdown-divider {
+    @apply h-px bg-bdo-border-gold/20 my-1;
+  }
+
+  /* Loading Spinner */
+  .spinner {
+    @apply inline-block animate-spin text-bdo-gold;
+  }
+
+  .spinner-lg {
+    @apply h-10 w-10;
+  }
+
+  .spinner-sm {
+    @apply h-5 w-5;
+  }
+
+  /* Avatar */
+  .avatar {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-br from-bdo-gold to-bdo-bronze text-bdo-text-dark font-bold overflow-hidden;
+  }
+
+  .avatar-xs { @apply h-6 w-6 text-xs; }
+  .avatar-sm { @apply h-8 w-8 text-sm; }
+  .avatar-md { @apply h-10 w-10 text-base; }
+  .avatar-lg { @apply h-16 w-16 text-2xl; }
+  .avatar-xl { @apply h-24 w-24 text-4xl; }
+
+  /* Divider */
+  .divider {
+    @apply relative my-6;
+  }
+
+  .divider::before {
+    content: '';
+    @apply absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r transparent via-bdo-border-gold/30 transparent;
+  }
+
+  .divider-text {
+    @apply relative flex items-center justify-center;
+  }
+
+  .divider-text span {
+    @apply px-4 bg-bdo-bg text-bdo-text-muted text-sm font-medium;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
+  .text-balance { text-wrap: balance; }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Gradient Text */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-bdo-gold via-bdo-gold-bright to-bdo-bronze bg-clip-text text-transparent;
+  }
+
+  .text-gradient-bronze {
+    @apply bg-gradient-to-r from-bdo-bronze via-bdo-gold to-bdo-bronze bg-clip-text text-transparent;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-bdo-bg-elevated/50 backdrop-blur-lg border border-bdo-border-gold/10;
+  }
+
+  /* Glow Effects */
+  .glow-gold {
+    box-shadow: var(--shadow-bdo-gold);
+  }
+
+  .glow-gold-lg {
+    box-shadow: var(--shadow-bdo-gold-lg);
+  }
+
+  /* Animation Keyframes */
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 42, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(212, 168, 42, 0.5); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-pulse-gold { animation: pulse-gold 2s ease-in-out infinite; }
+  .animate-shimmer { background: linear-gradient(90deg, transparent, rgba(212,168,42,0.1), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  .animate-fade-in-up { animation: fade-in-up 0.5s ease-out forwards; }
+  .animate-slide-in-right { animation: slide-in-right 0.4s ease-out forwards; }
+  .animate-scale-in { animation: scale-in 0.3s ease-out forwards; }
+
+  /* Stagger Delays */
+  .stagger-1 { animation-delay: 50ms; }
+  .stagger-2 { animation-delay: 100ms; }
+  .stagger-3 { animation-delay: 150ms; }
+  .stagger-4 { animation-delay: 200ms; }
+  .stagger-5 { animation-delay: 250ms; }
+  .stagger-6 { animation-delay: 300ms; }
+
+  /* Focus Visible */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bdo-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bdo-bg;
+  }
+
+  /* Truncate */
+  .truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .truncate-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 }
