@@ -106,10 +106,10 @@ export class ModalComponent {
   iconBgClass = computed(() => {
     switch (this.iconType()) {
       case 'success': return 'bg-gradient-to-br from-bdo-green to-bdo-green-dim';
-      case 'warning': return 'bg-gradient-to-br from-bdo-gold to-bdo-bronze';
+      case 'warning': return 'bg-gradient-to-br from-bdo-gold to-bdo-gold-bright';
       case 'danger': return 'bg-gradient-to-br from-bdo-red to-bdo-red-dim';
       case 'info': return 'bg-gradient-to-br from-bdo-blue to-bdo-blue-dim';
-      default: return 'bg-gradient-to-br from-bdo-gold to-bdo-bronze';
+      default: return 'bg-gradient-to-br from-bdo-gold to-bdo-gold-bright';
     }
   });
 

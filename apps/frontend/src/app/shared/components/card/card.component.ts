@@ -48,21 +48,18 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class CardComponent {
-  @Input() variant: 'default' | 'gold' | 'bronze' | 'interactive' = 'default';
+  @Input() variant: 'default' | 'gold' | 'interactive' = 'default';
   @Input() hover = false;
   @Input() padding = true;
   @Input() header = false;
   @Input() footer = false;
 
   cardClasses = computed(() => {
-    const classes = ['bg-bdo-bg-card', 'border', 'overflow-hidden'];
+    const classes = ['bg-bdo-black-card', 'border', 'overflow-hidden'];
 
     switch (this.variant) {
       case 'gold':
         classes.push('border-bdo-gold/50', 'shadow-bdo-md', 'shadow-bdo-gold');
-        break;
-      case 'bronze':
-        classes.push('border-bdo-bronze/50', 'shadow-bdo-md');
         break;
       case 'interactive':
         classes.push('border-bdo-border-gold/30', 'shadow-bdo-md', 'cursor-pointer', 'hover:border-bdo-gold/50', 'hover:shadow-bdo-lg', 'hover:shadow-bdo-gold', 'hover:-translate-y-1', 'transition-all', 'duration-300');
@@ -77,15 +74,13 @@ export class CardComponent {
   borderOpacity = computed(() => {
     switch (this.variant) {
       case 'gold': return '0.2';
-      case 'bronze': return '0.15';
       default: return '0.1';
     }
   });
 
   borderImage = computed(() => {
     switch (this.variant) {
-      case 'gold': return 'linear-gradient(135deg, var(--color-bdo-gold) 0%, var(--color-bdo-bronze) 50%, var(--color-bdo-gold) 100%) 1';
-      case 'bronze': return 'linear-gradient(135deg, var(--color-bdo-bronze) 0%, var(--color-bdo-gold) 50%, var(--color-bdo-bronze) 100%) 1';
+      case 'gold': return 'linear-gradient(135deg, var(--color-bdo-gold) 0%, var(--color-bdo-gold-bright) 50%, var(--color-bdo-gold) 100%) 1';
       default: return 'linear-gradient(135deg, var(--color-bdo-border-gold) 0%, var(--color-bdo-border-gold-dim) 50%, var(--color-bdo-border-gold) 100%) 1';
     }
   });

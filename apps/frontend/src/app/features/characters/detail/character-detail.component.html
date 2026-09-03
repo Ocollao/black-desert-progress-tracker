@@ -2,7 +2,7 @@
   <!-- Background -->
   <div class="absolute inset-0 pointer-events-none">
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-bronze/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-gold/3 rounded-full blur-3xl"></div>
     <div class="absolute inset-0 opacity-5">
       <svg class="w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="none">
         <defs>
@@ -19,7 +19,7 @@
     @if (isLoading()) {
       <div class="flex items-center justify-center h-64 animate-fade-in-up">
         <div class="text-center">
-          <div class="inline-block w-16 h-16 bg-gradient-to-r from-bdo-gold to-bdo-bronze rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-gold">
+          <div class="inline-block w-16 h-16 bg-gradient-to-r from-bdo-gold to-bdo-gold-bright rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-gold">
             <svg class="w-8 h-8 text-bdo-text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
@@ -52,7 +52,7 @@
           @if (char.avatarUrl) {
             <img [src]="char.avatarUrl" [alt]="char.name" class="w-full h-full object-cover" />
           } @else {
-            <div class="w-full h-full bg-gradient-to-br from-bdo-gold/30 to-bdo-bronze/30 flex items-center justify-center">
+            <div class="w-full h-full bg-gradient-to-br from-bdo-gold/30 to-bdo-gold-bright/30 flex items-center justify-center">
               <span class="text-9xl font-bold text-bdo-gold/50">{{ char.name.charAt(0) }}</span>
             </div>
           }
@@ -62,10 +62,10 @@
           <!-- Badges -->
           <div class="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row gap-3 px-4">
             <div class="flex items-center gap-2 flex-1">
-              <span class="px-3 py-1 text-xs font-bold text-bdo-text-dark bg-gradient-to-r from-bdo-gold to-bdo-bronze rounded-full shadow-bdo-gold">
+              <span class="px-3 py-1 text-xs font-bold text-bdo-text-dark bg-gradient-to-r from-bdo-gold to-bdo-gold-bright rounded-full shadow-bdo-gold">
                 GS {{ char.gearScore.toLocaleString() }}
               </span>
-              <bdp-badge variant="bronze" size="sm">
+              <bdp-badge variant="gold" size="sm">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
@@ -96,7 +96,7 @@
           <div class="flex items-start justify-between mb-8">
             <div>
               <div class="flex items-center gap-4 mb-3">
-                <div class="w-14 h-14 bg-gradient-to-br from-bdo-gold to-bdo-bronze rounded-xl flex items-center justify-center shadow-bdo-gold">
+                <div class="w-14 h-14 bg-gradient-to-br from-bdo-gold to-bdo-gold-bright rounded-xl flex items-center justify-center shadow-bdo-gold">
                   <span class="text-3xl font-bold text-bdo-text-dark">{{ char.name.charAt(0) }}</span>
                 </div>
                 <div>
@@ -190,7 +190,7 @@
                     </div>
                     <div class="bdo-frame p-4 text-center">
                       <p class="text-bdo-text-muted text-sm mb-1">DP Suave</p>
-                      <p class="text-2xl font-bold text-bdo-bronze">309</p>
+                      <p class="text-2xl font-bold text-bdo-gold">309</p>
                       <p class="text-xs text-bdo-text-muted">Kutum/Boots</p>
                     </div>
                   </div>
@@ -245,7 +245,7 @@
                   <div class="grid grid-cols-12 gap-2">
                     <div class="col-span-3 text-sm text-bdo-text-secondary font-medium">Accesorios</div>
                     <div class="col-span-9">
-                      <bdp-progress [value]="4" [max]="20" variant="bronze" size="md" [showValue]="true" [label]="'PEN (V) x4'"></bdp-progress>
+                      <bdp-progress [value]="4" [max]="20" variant="gold" size="md" [showValue]="true" [label]="'PEN (V) x4'"></bdp-progress>
                     </div>
                   </div>
                 </div>
@@ -298,8 +298,8 @@
               </bdp-card>
 
               <!-- Objectives -->
-              <bdp-card variant="bronze">
-                <h3 class="text-lg font-bold text-bdo-bronze mb-4 flex items-center gap-2">
+              <bdp-card variant="gold">
+                <h3 class="text-lg font-bold text-bdo-gold mb-4 flex items-center gap-2">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -342,9 +342,9 @@
                     </div>
                     <bdp-badge variant="green" size="sm">Pendiente</bdp-badge>
                   </li>
-                  <li class="flex items-start gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
-                    <div class="w-8 h-8 bg-bdo-bronze/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg class="w-4 h-4 text-bdo-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
+                    <div class="w-8 h-8 bg-bdo-gold/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
@@ -352,7 +352,7 @@
                       <p class="text-bdo-text-primary font-medium">Despierta habilidades de vida</p>
                       <p class="text-bdo-text-muted text-sm">Cocina/Alquimia Guru para ganancia de plata pasiva</p>
                     </div>
-                    <bdp-badge variant="bronze" size="sm">Opcional</bdp-badge>
+                    <bdp-badge variant="gold" size="sm">Opcional</bdp-badge>
                   </li>
                 </ul>
               </bdp-card>
@@ -360,7 +360,7 @@
               <!-- Quick Actions -->
               <bdp-card variant="default">
                 <h3 class="text-lg font-bold text-bdo-text-primary mb-4 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-bdo-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l4-4z" />
                   </svg>
                   Acciones Rápidas
@@ -390,7 +390,7 @@
   <!-- Footer -->
   <footer class="relative z-10 border-t border-bdo-border-gold/20 py-6 mt-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-bdo-text-muted text-sm">Black Desert Progress Tracker v0.4.1</p>
+      <p class="text-bdo-text-muted text-sm">Black Desert Progress Tracker v0.4.2</p>
       <p class="text-bdo-text-muted text-xs mt-1">Hecho con <span class="text-bdo-red">♥</span> para la comunidad de Black Desert Online</p>
     </div>
   </footer>

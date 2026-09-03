@@ -52,7 +52,7 @@ export class AvatarComponent {
       case 'xl': classes.push('h-24', 'w-24', 'text-4xl'); break;
     }
 
-    if (this.border) classes.push('ring-2', 'ring-bdo-bg', 'ring-offset-2', 'ring-offset-bdo-bg');
+    if (this.border) classes.push('ring-2', 'ring-bdo-black', 'ring-offset-2', 'ring-offset-bdo-black');
     if (this.shape === 'square') classes.push('rounded-lg');
 
     return classes.join(' ');

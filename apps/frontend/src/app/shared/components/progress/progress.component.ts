@@ -1,7 +1,7 @@
 import { Component, Input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export type ProgressVariant = 'default' | 'gold' | 'bronze' | 'green' | 'red' | 'blue';
+export type ProgressVariant = 'default' | 'gold' | 'green' | 'red' | 'blue';
 export type ProgressSize = 'sm' | 'md' | 'lg';
 
 @Component({
@@ -72,12 +72,11 @@ export class ProgressComponent {
   barClasses = computed(() => {
     const classes = ['progress-bar', 'h-full', 'rounded-full', 'transition-all', 'duration-500', 'ease-out'];
     switch (this.variant) {
-      case 'gold': classes.push('bg-gradient-to-r', 'from-bdo-gold', 'via-bdo-gold-bright', 'to-bdo-bronze'); break;
-      case 'bronze': classes.push('bg-gradient-to-r', 'from-bdo-bronze', 'to-bdo-gold'); break;
+      case 'gold': classes.push('bg-gradient-to-r', 'from-bdo-gold', 'via-bdo-gold-bright', 'to-bdo-gold'); break;
       case 'green': classes.push('bg-gradient-to-r', 'from-bdo-green', 'to-bdo-green-dim'); break;
       case 'red': classes.push('bg-gradient-to-r', 'from-bdo-red', 'to-bdo-red-dim'); break;
       case 'blue': classes.push('bg-gradient-to-r', 'from-bdo-blue', 'to-bdo-blue-dim'); break;
-      default: classes.push('bg-gradient-to-r', 'from-bdo-gold', 'to-bdo-bronze');
+      default: classes.push('bg-gradient-to-r', 'from-bdo-gold', 'to-bdo-gold-bright');
     }
     if (this.animated) classes.push('animate-pulse-gold');
     return classes.join(' ');

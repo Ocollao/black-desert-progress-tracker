@@ -55,21 +55,21 @@ export class ButtonComponent {
   @Output() clicked = new EventEmitter<MouseEvent>();
 
   buttonClasses = computed(() => {
-    const classes = ['inline-flex', 'items-center', 'justify-center', 'gap-2', 'font-medium', 'transition-all', 'duration-200', 'rounded-lg', 'focus:outline-none', 'focus-visible:ring-2', 'focus-visible:ring-offset-2', 'focus-visible:ring-offset-bdo-bg', 'disabled:opacity-50', 'disabled:cursor-not-allowed'];
+    const classes = ['inline-flex', 'items-center', 'justify-center', 'gap-2', 'font-medium', 'transition-all', 'duration-200', 'rounded-lg', 'focus:outline-none', 'focus-visible:ring-2', 'focus-visible:ring-offset-2', 'focus-visible:ring-offset-bdo-black', 'disabled:opacity-50', 'disabled:cursor-not-allowed'];
 
     // Variant
     switch (this.variant) {
       case 'primary':
-        classes.push('bg-gradient-to-r', 'from-bdo-gold', 'to-bdo-bronze', 'text-bdo-text-dark', 'border-0', 'hover:from-bdo-gold-bright', 'hover:to-bdo-gold', 'focus-visible:ring-bdo-gold', 'shadow-bdo-gold');
+        classes.push('bg-gradient-to-r', 'from-bdo-gold', 'to-bdo-gold-bright', 'text-bdo-text-dark', 'border-0', 'hover:from-bdo-gold-bright', 'hover:to-bdo-gold', 'focus-visible:ring-bdo-gold', 'shadow-bdo-gold');
         break;
       case 'secondary':
-        classes.push('bg-bdo-bg-elevated', 'text-bdo-text-primary', 'border', 'border-bdo-border-gold/50', 'hover:border-bdo-gold', 'hover:bg-bdo-bg-card', 'focus-visible:ring-bdo-gold');
+        classes.push('bg-bdo-black-elevated', 'text-bdo-text-primary', 'border', 'border-bdo-border-gold/50', 'hover:border-bdo-gold', 'hover:bg-bdo-black-card', 'focus-visible:ring-bdo-gold');
         break;
       case 'danger':
         classes.push('bg-gradient-to-r', 'from-bdo-red', 'to-bdo-red-dim', 'text-white', 'border-0', 'hover:from-bdo-red-dim', 'hover:to-bdo-red', 'focus-visible:ring-bdo-red');
         break;
       case 'ghost':
-        classes.push('bg-transparent', 'text-bdo-text-secondary', 'hover:text-bdo-gold', 'hover:bg-bdo-bg-elevated', 'border-0', 'focus-visible:ring-bdo-gold');
+        classes.push('bg-transparent', 'text-bdo-text-secondary', 'hover:text-bdo-gold', 'hover:bg-bdo-black-elevated', 'border-0', 'focus-visible:ring-bdo-gold');
         break;
     }
 

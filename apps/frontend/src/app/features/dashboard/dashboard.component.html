@@ -2,7 +2,7 @@
   <!-- Background -->
   <div class="absolute inset-0 pointer-events-none">
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-bronze/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-gold/3 rounded-full blur-3xl"></div>
     <div class="absolute inset-0 opacity-5">
       <svg class="w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="none">
         <defs>
@@ -20,7 +20,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-gradient-to-br from-bdo-gold to-bdo-bronze rounded-xl flex items-center justify-center shadow-bdo-gold">
+          <div class="w-10 h-10 bg-gradient-to-br from-bdo-gold to-bdo-gold-bright rounded-xl flex items-center justify-center shadow-bdo-gold">
             <svg class="w-6 h-6 text-bdo-text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
@@ -53,7 +53,7 @@
     @if (isLoading()) {
       <div class="flex items-center justify-center h-64">
         <div class="text-center">
-          <div class="inline-block w-16 h-16 bg-gradient-to-r from-bdo-gold to-bdo-bronze rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-gold">
+          <div class="inline-block w-16 h-16 bg-gradient-to-r from-bdo-gold to-bdo-gold-bright rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-gold">
             <svg class="w-8 h-8 text-bdo-text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
@@ -137,7 +137,7 @@
           <!-- Gear Score Card -->
           <bdp-card variant="gold" class="card-hover">
             <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-gradient-to-br from-bdo-gold to-bdo-bronze rounded-xl flex items-center justify-center shadow-bdo-gold">
+              <div class="w-14 h-14 bg-gradient-to-br from-bdo-gold to-bdo-gold-bright rounded-xl flex items-center justify-center shadow-bdo-gold">
                 <svg class="w-7 h-7 text-bdo-text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
@@ -196,9 +196,9 @@
                     <p class="text-bdo-text-muted text-sm">Cocina, Alquimia, Pesca, Procesamiento...</p>
                   </div>
                 </li>
-                <li class="flex items-center gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
-                  <div class="w-10 h-10 bg-bdo-bronze/15 rounded-lg flex items-center justify-center group-hover:bg-bdo-bronze/25 transition-colors">
-                    <svg class="w-5 h-5 text-bdo-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <li class="flex items-center gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
+                  <div class="w-10 h-10 bg-bdo-gold/15 rounded-lg flex items-center justify-center group-hover:bg-bdo-gold/25 transition-colors">
+                    <svg class="w-5 h-5 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -213,7 +213,7 @@
             <!-- Quick Links -->
             <bdp-card variant="default">
               <h3 class="text-lg font-bold text-bdo-text-primary mb-4 flex items-center gap-2">
-                <svg class="w-5 h-5 text-bdo-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l4-4z" />
                 </svg>
                 Accesos Rápidos
@@ -250,8 +250,8 @@
           <!-- Side Panel -->
           <div class="space-y-4">
             <!-- BDO News / Events -->
-            <bdp-card variant="bronze">
-              <h3 class="text-lg font-bold text-bdo-bronze mb-4 flex items-center gap-2">
+            <bdp-card variant="gold">
+              <h3 class="text-lg font-bold text-bdo-gold mb-4 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
@@ -275,8 +275,8 @@
                 </div>
                 <div class="p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                   <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-bdo-bronze/15 rounded-lg flex items-center justify-center">
-                      <svg class="w-4 h-4 text-bdo-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-8 h-8 bg-bdo-gold/15 rounded-lg flex items-center justify-center">
+                      <svg class="w-4 h-4 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19l9 2m-9-18l6 6m-3-3v10m3-10H9a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2v-5" />
                       </svg>
                     </div>
@@ -284,7 +284,7 @@
                       <p class="text-bdo-text-primary font-medium text-sm">Boss de Mundo: Kutum</p>
                       <p class="text-bdo-text-muted text-xs">Aparece en 2h 30m</p>
                     </div>
-                    <bdp-badge variant="bronze" size="sm">Pendiente</bdp-badge>
+                    <bdp-badge variant="gold" size="sm">Pendiente</bdp-badge>
                   </div>
                 </div>
               </div>
@@ -314,7 +314,7 @@
   <footer class="relative z-10 border-t border-bdo-border-gold/20 py-6 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-bdo-text-muted text-sm">
-        Black Desert Progress Tracker v0.4.1
+        Black Desert Progress Tracker v0.4.2
       </p>
       <p class="text-bdo-text-muted text-xs mt-1">
         Hecho con <span class="text-bdo-red">♥</span> para la comunidad de Black Desert Online
