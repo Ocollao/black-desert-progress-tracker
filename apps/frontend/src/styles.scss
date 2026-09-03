@@ -22,6 +22,11 @@
   --color-bdo-red-dim: #8b251a;
   --color-bdo-green: #27ae60;
   --color-bdo-green-dim: #1e8a49;
+  --color-bdo-blue: #2980b9;
+  --color-bdo-blue-dim: #1a5f8a;
+
+  --color-bdo-bg: #0a0a0a;
+  --color-bdo-bg-elevated: #141414;
 
   --color-bdo-text-primary: #ffffff;
   --color-bdo-text-secondary: #e0e0e0;
@@ -423,6 +428,35 @@
 
   .glow-gold-lg {
     box-shadow: var(--shadow-bdo-gold-lg);
+  }
+
+  /* Tip Box */
+  .tip-box {
+    @apply p-4 rounded-lg border-l-4 bg-bdo-black-elevated/50;
+  }
+
+  .tip-box--info {
+    @apply border-bdo-blue bg-bdo-blue/5;
+  }
+
+  .tip-box--warning {
+    @apply border-bdo-gold bg-bdo-gold/5;
+  }
+
+  .tip-box--danger {
+    @apply border-bdo-red bg-bdo-red/5;
+  }
+
+  .tip-box--success {
+    @apply border-bdo-green bg-bdo-green/5;
+  }
+
+  .tip-box__title {
+    @apply font-medium mb-2 flex items-center gap-2;
+  }
+
+  .tip-box__text {
+    @apply text-sm text-bdo-text-secondary leading-relaxed;
   }
 
   /* Animation Keyframes */

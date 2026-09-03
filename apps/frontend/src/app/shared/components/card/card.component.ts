@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
       </div>
 
       @if (header) {
-        <div class="relative p-5 pb-3 border-b border-bdo-border-gold/20">
+        <div class="relative p-5 pb-3 border-b border-bdo-border-gold/20 bg-bdo-black-elevated/30">
           <ng-content select="[slot=header]"></ng-content>
         </div>
       }
@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
       </div>
 
       @if (footer) {
-        <div class="relative p-5 pt-3 border-t border-bdo-border-gold/20 bg-bdo-bg-elevated/50">
+        <div class="relative p-5 pt-3 border-t border-bdo-border-gold/20 bg-bdo-black-elevated/50">
           <ng-content select="[slot=footer]"></ng-content>
         </div>
       }

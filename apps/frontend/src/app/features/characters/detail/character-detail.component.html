@@ -177,7 +177,7 @@
                     </div>
                     <div class="bdo-frame p-4 text-center">
                       <p class="text-bdo-text-muted text-sm mb-1">DP Objetivo</p>
-                      <p class="text-2xl font-bold text-bdo-blue">300</p>
+                      <p class="text-2xl font-bold text-bdo-gold">300</p>
                       <p class="text-xs text-bdo-text-muted">PvE Básico</p>
                     </div>
                   </div>
@@ -263,34 +263,34 @@
                   Información General
                 </h3>
                 <dl class="space-y-3">
-                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Estado</dt>
                     <dd class="font-medium flex items-center gap-2" [class]="char.isActive ? 'text-bdo-green' : 'text-bdo-red'">
                       <span class="w-2 h-2 rounded-full" [class]="char.isActive ? 'bg-bdo-green' : 'bg-bdo-red'"></span>
                       {{ char.isActive ? 'Activo' : 'Inactivo' }}
                     </dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Clase</dt>
                     <dd class="font-medium text-bdo-text-primary capitalize">{{ classLabels[char.class] }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Nivel</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ char.level }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Experiencia</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ char.experience.toLocaleString() }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Gear Score</dt>
                     <dd class="font-bold text-bdo-gold">{{ char.gearScore.toLocaleString() }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Creado el</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ formatDate(char.createdAt) }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Actualizado</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ formatDate(char.updatedAt) }}</dd>
                   </div>
@@ -306,7 +306,7 @@
                   Próximos Objetivos
                 </h3>
                 <ul class="space-y-3">
-                  <li class="flex items-start gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
+                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
                     <div class="w-8 h-8 bg-bdo-gold/15 rounded-lg flex items-center justify-center group-hover:bg-bdo-gold/25 transition-colors flex-shrink-0">
                       <svg class="w-4 h-4 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -318,7 +318,7 @@
                     </div>
                     <bdp-badge variant="gold" size="sm">Prioridad Alta</bdp-badge>
                   </li>
-                  <li class="flex items-start gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
+                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
                     <div class="w-8 h-8 bg-bdo-red/15 rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg class="w-4 h-4 text-bdo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -330,7 +330,7 @@
                     </div>
                     <bdp-badge variant="red" size="sm">En Progreso</bdp-badge>
                   </li>
-                  <li class="flex items-start gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
+                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
                     <div class="w-8 h-8 bg-bdo-green/15 rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg class="w-4 h-4 text-bdo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -390,7 +390,7 @@
   <!-- Footer -->
   <footer class="relative z-10 border-t border-bdo-border-gold/20 py-6 mt-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-bdo-text-muted text-sm">Black Desert Progress Tracker v0.4.2</p>
+      <p class="text-bdo-text-muted text-sm">Black Desert Progress Tracker v0.4.3</p>
       <p class="text-bdo-text-muted text-xs mt-1">Hecho con <span class="text-bdo-red">♥</span> para la comunidad de Black Desert Online</p>
     </div>
   </footer>

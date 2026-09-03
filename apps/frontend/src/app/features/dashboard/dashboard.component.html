@@ -92,7 +92,7 @@
           <!-- Characters Card -->
           <bdp-card variant="interactive" class="card-hover">
             <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-gradient-to-br from-bdo-blue to-bdo-blue-dim rounded-xl flex items-center justify-center shadow-lg">
+              <div class="w-14 h-14 bg-gradient-to-br from-bdo-blue to-bdo-blue-dim rounded-xl flex items-center justify-center shadow-lg glow-gold">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -162,7 +162,7 @@
                 Próximos Objetivos
               </h2>
               <ul class="space-y-3">
-                <li class="flex items-center gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
+                <li class="flex items-center gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
                   <div class="w-10 h-10 bg-bdo-gold/15 rounded-lg flex items-center justify-center group-hover:bg-bdo-gold/25 transition-colors">
                     <svg class="w-5 h-5 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
@@ -174,7 +174,7 @@
                   </div>
                   <bdp-badge variant="gold" size="sm">Nuevo</bdp-badge>
                 </li>
-                <li class="flex items-center gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
+                <li class="flex items-center gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
                   <div class="w-10 h-10 bg-bdo-red/15 rounded-lg flex items-center justify-center group-hover:bg-bdo-red/25 transition-colors">
                     <svg class="w-5 h-5 text-bdo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -185,7 +185,7 @@
                     <p class="text-bdo-text-muted text-sm">Meta inicial: 261 AP / 300 DP</p>
                   </div>
                 </li>
-                <li class="flex items-center gap-3 p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
+                <li class="flex items-center gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 hover:border-bdo-gold/30 transition-colors group">
                   <div class="w-10 h-10 bg-bdo-green/15 rounded-lg flex items-center justify-center group-hover:bg-bdo-green/25 transition-colors">
                     <svg class="w-5 h-5 text-bdo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -258,7 +258,7 @@
                 Eventos de Temporada
               </h3>
               <div class="space-y-3">
-                <div class="p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                <div class="p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                   <div class="flex items-center gap-3">
                     <div class="w-8 h-8 bg-bdo-gold/15 rounded-lg flex items-center justify-center">
                       <svg class="w-4 h-4 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -273,7 +273,7 @@
                   </div>
                   <bdp-progress [value]="65" variant="gold" size="sm" [showValue]="true" label="Progreso"></bdp-progress>
                 </div>
-                <div class="p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                <div class="p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
                   <div class="flex items-center gap-3">
                     <div class="w-8 h-8 bg-bdo-gold/15 rounded-lg flex items-center justify-center">
                       <svg class="w-4 h-4 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,10 +298,14 @@
                 </svg>
                 Consejo del Día
               </h3>
-              <div class="p-4 bg-bdo-blue/5 rounded-lg border border-bdo-blue/20">
-                <p class="text-bdo-text-secondary text-sm leading-relaxed">
-                  <span class="font-medium text-bdo-blue">Tip:</span> Completa las misiones diarias de la Taberna de Heidel para obtener <span class="font-medium text-bdo-gold">Memorias de Aventurero</span>. Son esenciales para subir el nivel de tus habilidades y obtener equipo de temporada.
-                </p>
+              <div class="tip-box tip-box--info">
+                <div class="tip-box__title">
+                  <svg class="w-4 h-4 text-bdo-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-bdo-gold font-semibold">Consejo</span>
+                </div>
+                <p class="tip-box__text">Completa las misiones diarias de la <span class="font-medium text-bdo-gold">Taberna de Heidel</span> para obtener <span class="font-medium text-bdo-gold">Memorias de Aventurero</span>. Son esenciales para subir el nivel de tus habilidades y obtener equipo de temporada.</p>
               </div>
             </bdp-card>
           </div>
@@ -314,7 +318,7 @@
   <footer class="relative z-10 border-t border-bdo-border-gold/20 py-6 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-bdo-text-muted text-sm">
-        Black Desert Progress Tracker v0.4.2
+        Black Desert Progress Tracker v0.4.3
       </p>
       <p class="text-bdo-text-muted text-xs mt-1">
         Hecho con <span class="text-bdo-red">♥</span> para la comunidad de Black Desert Online
