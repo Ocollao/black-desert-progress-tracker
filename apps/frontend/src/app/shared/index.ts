@@ -18,3 +18,9 @@ export type { ProgressVariant, ProgressSize } from './components/progress/progre
 
 export { TooltipComponent } from './components/tooltip/tooltip.component';
 export type { TooltipPosition } from './components/tooltip/tooltip.component';
+
+export { SectionHeadingComponent } from './components/section-heading/section-heading.component';
+export { ProgressRingComponent } from './components/progress-ring/progress-ring.component';
+export { EquipmentSlotComponent } from './components/equipment-slot/equipment-slot.component';
+export { ItemCardComponent } from './components/item-card/item-card.component';
+export { ActivityTimelineComponent } from './components/activity-timeline/activity-timeline.component';

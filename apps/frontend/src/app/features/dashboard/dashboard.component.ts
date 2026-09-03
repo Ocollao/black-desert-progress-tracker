@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
-import { ButtonComponent, CardComponent, BadgeComponent, ProgressComponent, AvatarComponent } from '../../shared/index';
+import {
+  CardComponent, BadgeComponent, ProgressComponent,
+  SectionHeadingComponent, ProgressRingComponent, ActivityTimelineComponent,
+} from '../../shared/index';
+import { mockActivity, mockCategoryProgress, mockCharacter, mockGoals } from '../../core/mock/bdo-mock-data';
 
 @Component({
   selector: 'bdp-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule, ButtonComponent, CardComponent, BadgeComponent, ProgressComponent, AvatarComponent],
+  imports: [CommonModule, RouterModule, CardComponent, BadgeComponent, ProgressComponent, SectionHeadingComponent, ProgressRingComponent, ActivityTimelineComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
@@ -18,6 +22,12 @@ export class DashboardComponent implements OnInit {
 
   user = this.authService.user;
   isLoading = signal(true);
+
+  char = mockCharacter;
+  categories = mockCategoryProgress;
+  activity = mockActivity;
+  nextGoal = mockGoals[0];
+  goals = mockGoals.slice(1, 4);
 
   ngOnInit(): void {
     if (this.user()) {

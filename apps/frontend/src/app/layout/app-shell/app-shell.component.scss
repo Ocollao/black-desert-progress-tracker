@@ -1,0 +1,41 @@
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.65rem;
+  border: 1px solid transparent;
+  color: var(--color-bdo-text-secondary);
+  transition: all 180ms ease;
+}
+.nav-link:hover {
+  color: var(--color-bdo-text-primary);
+  background: rgba(200, 164, 93, 0.07);
+  border-color: rgba(200, 164, 93, 0.25);
+}
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(200, 164, 93, 0.25);
+  background: rgba(200, 164, 93, 0.06);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.nav-active {
+  color: var(--color-bdo-gold-bright) !important;
+  background: linear-gradient(135deg, rgba(200, 164, 93, 0.16), rgba(200, 164, 93, 0.05)) !important;
+  border-color: rgba(200, 164, 93, 0.45) !important;
+  box-shadow: 0 0 16px rgba(200, 164, 93, 0.18);
+}
+.nav-active .nav-icon {
+  background: linear-gradient(135deg, var(--color-bdo-gold), var(--color-bdo-gold-bright));
+  color: var(--color-bdo-text-dark);
+  border-color: transparent;
+}
+.mobile-active {
+  color: var(--color-bdo-gold-bright) !important;
+}

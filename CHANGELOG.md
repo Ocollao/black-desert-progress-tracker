@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.7] - 2026-09-03
+
+### Added
+- Nuevo App Shell con sidebar por secciones, topbar con personaje activo y progreso global, drawer móvil y nav inferior
+- Páginas nuevas: Personaje, Equipo, Progresión (árbol), Objetivos, Desafíos, LifeSkill, Aventuras y regiones, Conocimiento, Colecciones y logros, Ajustes
+- Nuevos componentes reutilizables: section-heading, progress-ring, equipment-slot, item-card, activity-timeline
+- Capa de datos mock separada (`core/mock/bdo-mock-data`) lista para sustituir por la API
+- Dashboard rediseñado como centro del registro: perfil, progreso por pilares, siguiente objetivo recomendado, próximos objetivos y actividad reciente
+
 ## [0.4.3] - 2026-09-02
 
 ### Changed
