@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CharacterService, CharacterClass, CreateCharacterRequest, UpdateCharacterRequest } from '../character.service';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
   selector: 'bdp-character-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ButtonComponent],
   templateUrl: './character-form.component.html',
   styleUrls: ['./character-form.component.scss'],
 })

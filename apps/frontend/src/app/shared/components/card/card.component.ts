@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
       </div>
 
       @if (header) {
-        <div class="relative p-5 pb-3 border-b border-bdo-border-gold/20 bg-bdo-black-elevated/30">
+        <div class="relative p-5 pb-3 border-b border-bdo-border-gold/20 bg-bdo-bg-elevated/30">
           <ng-content select="[slot=header]"></ng-content>
         </div>
       }
@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
       </div>
 
       @if (footer) {
-        <div class="relative p-5 pt-3 border-t border-bdo-border-gold/20 bg-bdo-black-elevated/50">
+        <div class="relative p-5 pt-3 border-t border-bdo-border-gold/20 bg-bdo-bg-elevated/50">
           <ng-content select="[slot=footer]"></ng-content>
         </div>
       }
@@ -55,7 +55,7 @@ export class CardComponent {
   @Input() footer = false;
 
   cardClasses = computed(() => {
-    const classes = ['bg-bdo-black-card', 'border', 'overflow-hidden'];
+    const classes = ['bg-bdo-bg-elevated', 'border', 'overflow-hidden'];
 
     switch (this.variant) {
       case 'gold':

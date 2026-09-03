@@ -76,7 +76,7 @@ export class ProgressComponent {
       case 'green': classes.push('bg-gradient-to-r', 'from-bdo-green', 'to-bdo-green-dim'); break;
       case 'red': classes.push('bg-gradient-to-r', 'from-bdo-red', 'to-bdo-red-dim'); break;
       case 'blue': classes.push('bg-gradient-to-r', 'from-bdo-blue', 'to-bdo-blue-dim'); break;
-      case 'amber': classes.push('bg-gradient-to-r', 'from-amber-500', 'to-amber-600'); break;
+      case 'amber': classes.push('bg-gradient-to-r', 'from-bdo-amber', 'to-bdo-amber-dim'); break;
       default: classes.push('bg-gradient-to-r', 'from-bdo-gold', 'to-bdo-gold-bright');
     }
     if (this.animated) classes.push('animate-pulse-gold');

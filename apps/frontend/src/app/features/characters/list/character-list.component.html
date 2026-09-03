@@ -1,36 +1,22 @@
-<div class="min-h-screen relative overflow-hidden">
+<div class="min-h-screen relative overflow-hidden bg-bdo-bg">
   <!-- Background -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute inset-0 opacity-5">
-      <svg class="w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="none">
-        <defs>
-          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="var(--color-bdo-gold)" stroke-width="0.3" stroke-opacity="0.08"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)"></rect>
-      </svg>
-    </div>
+  <div class="absolute inset-0 pointer-events-none bg-radial-gold">
+    <div class="absolute inset-0 opacity-5 bg-grid-pattern"></div>
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="relative z-10 container-main py-8">
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 animate-fade-in-up">
       <div>
-        <h1 class="text-3xl md:text-4xl font-bold text-gradient-gold mb-1">Mis Personajes</h1>
-        <p class="text-bdo-text-secondary">Gestiona tus aventureros en Black Desert</p>
+        <h1 class="page-title">Mis Personajes</h1>
+        <p class="page-subtitle">Gestiona tus aventureros en Black Desert</p>
       </div>
-      <button
-        (click)="onCreate()"
-        class="btn-primary w-full sm:w-auto"
-      >
+      <a routerLink="/characters/create" class="btn-primary w-full sm:w-auto">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
         </svg>
         Nuevo Personaje
-      </button>
+      </a>
     </div>
 
     @if (error()) {
@@ -64,12 +50,12 @@
         </div>
         <h3 class="text-xl font-bold text-bdo-text-primary mb-2">No tienes personajes aún</h3>
         <p class="text-bdo-text-secondary mb-6 max-w-md mx-auto">Crea tu primer personaje para empezar a seguir tu progreso en Black Desert Online.</p>
-        <button (click)="onCreate()" class="btn-primary">
+        <a routerLink="/characters/create" class="btn-primary">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
           </svg>
           Crear tu primer personaje
-        </button>
+        </a>
       </div>
     } @else {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 animate-fade-in-up">
@@ -142,22 +128,13 @@
 
               <div class="pt-4 border-t border-bdo-border-gold/20">
                 <div class="flex gap-2">
-                  <button
-                    [routerLink]="['/characters', character.id]"
-                    class="btn-secondary flex-1 justify-center py-2 text-sm"
-                  >
+                  <a [routerLink]="['/characters', character.id]" class="btn-secondary flex-1 justify-center py-2 text-sm">
                     Ver
-                  </button>
-                  <button
-                    (click)="onEdit(character)"
-                    class="btn-ghost flex-1 justify-center py-2 text-sm"
-                  >
+                  </a>
+                  <button (click)="onEdit(character)" class="btn-ghost flex-1 justify-center py-2 text-sm">
                     Editar
                   </button>
-                  <button
-                    (click)="onDelete(character)"
-                    class="btn-danger flex-1 justify-center py-2 text-sm"
-                  >
+                  <button (click)="onDelete(character)" class="btn-danger flex-1 justify-center py-2 text-sm">
                     Eliminar
                   </button>
                 </div>

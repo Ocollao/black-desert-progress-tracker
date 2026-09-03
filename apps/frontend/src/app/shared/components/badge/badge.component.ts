@@ -1,7 +1,7 @@
 import { Component, Input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export type BadgeVariant = 'gold' | 'silver' | 'red' | 'green' | 'blue' | 'default';
+export type BadgeVariant = 'gold' | 'silver' | 'red' | 'green' | 'blue' | 'amber' | 'default';
 export type BadgeSize = 'sm' | 'md' | 'lg';
 
 @Component({
@@ -59,10 +59,13 @@ export class BadgeComponent {
         classes.push('badge-green');
         break;
       case 'blue':
-        classes.push('bg-bdo-black-elevated', 'text-bdo-gold', 'border', 'border-bdo-gold/30');
+        classes.push('bg-bdo-bg-elevated', 'text-bdo-blue', 'border', 'border-bdo-blue/30');
+        break;
+      case 'amber':
+        classes.push('bg-bdo-amber/15', 'text-bdo-amber', 'border', 'border-bdo-amber/30');
         break;
       default:
-        classes.push('bg-bdo-black-elevated', 'text-bdo-text-secondary', 'border', 'border-bdo-border-gold/30');
+        classes.push('bg-bdo-bg-elevated', 'text-bdo-text-secondary', 'border', 'border-bdo-border-gold/30');
     }
 
     // Size

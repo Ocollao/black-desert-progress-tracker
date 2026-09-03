@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { CardComponent } from '../../../shared/components/card/card.component';
 
 @Component({
   selector: 'bdp-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, ButtonComponent, CardComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })

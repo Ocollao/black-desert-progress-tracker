@@ -1,21 +1,10 @@
-<div class="min-h-screen relative overflow-hidden">
+<div class="min-h-screen relative overflow-hidden bg-bdo-bg">
   <!-- Background -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute inset-0 opacity-5">
-      <svg class="w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="none">
-        <defs>
-          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="var(--color-bdo-gold)" stroke-width="0.3" stroke-opacity="0.08"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)"></rect>
-      </svg>
-    </div>
+  <div class="absolute inset-0 pointer-events-none bg-radial-gold">
+    <div class="absolute inset-0 opacity-5 bg-grid-pattern"></div>
   </div>
 
-  <div class="relative z-10 max-w-2xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+  <div class="relative z-10 container-form py-8 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="mb-8 animate-fade-in-up">
       <a routerLink="/characters" class="btn-ghost text-sm mb-6 inline-flex">
@@ -24,10 +13,8 @@
         </svg>
         Volver
       </a>
-      <h1 class="text-3xl font-bold text-gradient-gold mb-2">
-        {{ isEditing() ? 'Editar Personaje' : 'Crear Personaje' }}
-      </h1>
-      <p class="text-bdo-text-secondary">
+      <h1 class="page-title">{{ isEditing() ? 'Editar Personaje' : 'Crear Personaje' }}</h1>
+      <p class="page-subtitle">
         {{ isEditing() ? 'Modifica los datos de tu aventurero' : 'Añade un nuevo personaje a tu cuenta' }}
       </p>
     </div>
@@ -143,28 +130,15 @@
       </div>
 
       <div class="flex justify-end gap-3 pt-6 border-t border-bdo-border-gold/20">
-        <button
-          type="button"
-          (click)="onCancel()"
-          class="btn-secondary"
-        >
-          Cancelar
-        </button>
-        <button
+        <a routerLink="/characters" class="btn-secondary">Cancelar</a>
+        <bdp-button
           type="submit"
+          variant="primary"
           [disabled]="!isFormValid() || isSubmitting() || isLoading()"
-          class="btn-primary"
+          [loading]="isSubmitting()"
         >
-          @if (isSubmitting()) {
-            <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Guardando...
-          } @else {
-            {{ isEditing() ? 'Actualizar' : 'Crear' }}
-          }
-        </button>
+          {{ isEditing() ? 'Actualizar' : 'Crear' }}
+        </bdp-button>
       </div>
     </form>
   </div>

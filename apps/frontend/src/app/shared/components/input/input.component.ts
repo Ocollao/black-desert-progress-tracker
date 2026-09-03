@@ -180,8 +180,6 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    // Note: We can't directly set the input signal from outside
-    // The disabled state should be controlled via the input binding
     console.warn('setDisabledState called but disabled is controlled via input binding');
   }
 }

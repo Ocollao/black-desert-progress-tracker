@@ -1,43 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  /* BDO Color Palette - Gold, Black, White */
-  --color-bdo-black: #000000;
-  --color-bdo-black-elevated: #111111;
-  --color-bdo-black-card: #1a1a1a;
-  --color-bdo-border: #333333;
-  --color-bdo-border-gold: #d4a82a;
-  --color-bdo-border-gold-dim: #a68620;
+  --color-bdo-bg: #0f1115;
+  --color-bdo-bg-elevated: #171a21;
+  --color-bdo-bg-secondary: #1d212a;
+  --color-bdo-border: #303642;
+  --color-bdo-border-gold: #c8a45d;
+  --color-bdo-border-gold-dim: #a0844a;
 
-  --color-bdo-gold: #d4a82a;
-  --color-bdo-gold-bright: #f0c840;
-  --color-bdo-gold-dim: #a68620;
-  --color-bdo-gold-light: #f5e6b8;
+  --color-bdo-gold: #c8a45d;
+  --color-bdo-gold-bright: #e0c27a;
+  --color-bdo-gold-dim: #a0844a;
+  --color-bdo-gold-light: #f0e0c8;
 
   --color-bdo-white: #ffffff;
-  --color-bdo-white-dim: #e0e0e0;
-  --color-bdo-white-muted: #a0a0a0;
+  --color-bdo-white-dim: #f1f1f1;
+  --color-bdo-white-muted: #a8adb7;
 
-  --color-bdo-red: #c0392b;
-  --color-bdo-red-dim: #8b251a;
-  --color-bdo-green: #27ae60;
-  --color-bdo-green-dim: #1e8a49;
-  --color-bdo-blue: #2980b9;
-  --color-bdo-blue-dim: #1a5f8a;
+  --color-bdo-red: #d86666;
+  --color-bdo-red-dim: #b04d4d;
+  --color-bdo-green: #6fbf73;
+  --color-bdo-green-dim: #58a05b;
+  --color-bdo-blue: #6c9bd2;
+  --color-bdo-blue-dim: #537db0;
+  --color-bdo-amber: #d8a84e;
+  --color-bdo-amber-dim: #b0883e;
 
-  --color-bdo-bg: #0a0a0a;
-  --color-bdo-bg-elevated: #141414;
-
-  --color-bdo-text-primary: #ffffff;
-  --color-bdo-text-secondary: #e0e0e0;
-  --color-bdo-text-muted: #a0a0a0;
-  --color-bdo-text-dark: #000000;
+  --color-bdo-text-primary: #f1f1f1;
+  --color-bdo-text-secondary: #a8adb7;
+  --color-bdo-text-muted: #888c94;
+  --color-bdo-text-dark: #0f1115;
 
   --color-bdo-primary: var(--color-bdo-gold);
-  --color-bdo-secondary: var(--color-bdo-black-elevated);
+  --color-bdo-secondary: var(--color-bdo-bg-elevated);
   --color-bdo-accent: var(--color-bdo-gold-bright);
 
-  /* Spacing Scale */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -49,7 +46,6 @@
   --space-12: 3rem;
   --space-16: 4rem;
 
-  /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
@@ -57,20 +53,17 @@
   --radius-2xl: 1rem;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-bdo-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
-  --shadow-bdo-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
-  --shadow-bdo-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
-  --shadow-bdo-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
-  --shadow-bdo-gold: 0 0 20px rgba(212, 168, 42, 0.35);
-  --shadow-bdo-gold-lg: 0 0 40px rgba(212, 168, 42, 0.45);
+  --shadow-bdo-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-bdo-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-bdo-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-bdo-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --shadow-bdo-gold: 0 0 20px rgba(200, 164, 93, 0.25);
+  --shadow-bdo-gold-lg: 0 0 40px rgba(200, 164, 93, 0.35);
 
-  /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --transition-slow: 350ms ease;
 
-  /* Z-Indices */
   --z-dropdown: 100;
   --z-sticky: 200;
   --z-fixed: 300;
@@ -78,439 +71,916 @@
   --z-modal: 500;
   --z-popover: 600;
   --z-tooltip: 700;
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  --font-display: 'Cinzel', 'IM Fell English', 'Crimson Text', Georgia, serif;
 }
 
-@layer base {
-  * {
-    @apply border-bdo-border;
-    box-sizing: border-box;
-  }
+*,
+*::before,
+*::after {
+  border-color: var(--color-bdo-border);
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
   html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    @apply bg-bdo-black text-bdo-text-primary antialiased;
-    font-family: 'Inter', 'Crimson Text', Georgia, serif;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "liga", "calt";
-    background-image:
-      radial-gradient(ellipse at 20% 0%, rgba(212, 168, 42, 0.04) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 100%, rgba(212, 168, 42, 0.02) 0%, transparent 50%),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 400px 400px;
-    background-attachment: fixed;
-    min-height: 100vh;
-  }
-
-  /* Typography */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cinzel', 'IM Fell English', 'Crimson Text', Georgia, serif;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--color-bdo-text-primary);
-  }
-
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
-  h2 { @apply text-3xl md:text-4xl; }
-  h3 { @apply text-2xl md:text-3xl; }
-  h4 { @apply text-xl md:text-2xl; }
-  h5 { @apply text-lg md:text-xl; }
-  h6 { @apply text-base md:text-lg; }
-
-  p { @apply leading-relaxed text-bdo-text-secondary; }
-
-  a { @apply text-bdo-gold transition-colors duration-200 hover:text-bdo-gold-bright; }
-
-  ::selection {
-    @apply bg-bdo-gold/30 text-bdo-text-dark;
-  }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar { @apply w-2; }
-  ::-webkit-scrollbar-track { @apply bg-bdo-black-elevated; }
-  ::-webkit-scrollbar-thumb { @apply bg-bdo-border-gold-dim rounded-full; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-bdo-gold; }
-  ::-webkit-scrollbar-corner { @apply bg-bdo-black-elevated; }
-}
-
-@layer components {
-  /* BDO Frame / Panel */
-  .bdo-frame {
-    @apply relative bg-bdo-black-card border border-bdo-border-gold/30 rounded-xl overflow-hidden;
-    background-image:
-      linear-gradient(180deg, rgba(212, 168, 42, 0.03) 0%, transparent 50%),
-      linear-gradient(90deg, rgba(212, 168, 42, 0.015) 0%, transparent 50%);
-    box-shadow: var(--shadow-bdo-md);
-  }
-
-  .bdo-frame::before {
-    content: '';
-    @apply absolute inset-0 border-2 rounded-xl;
-    border-image: linear-gradient(135deg, var(--color-bdo-gold) 0%, var(--color-bdo-gold-bright) 50%, var(--color-bdo-gold) 100%) 1;
-    opacity: 0.15;
-    pointer-events: none;
-  }
-
-  .bdo-frame--gold {
-    @apply border-bdo-gold/50;
-    box-shadow: var(--shadow-bdo-md), var(--shadow-bdo-gold);
-  }
-
-  /* Ornamental Corners */
-  .bdo-corners {
-    @apply relative;
-  }
-
-  .bdo-corners::before,
-  .bdo-corners::after,
-  .bdo-corners > *::before,
-  .bdo-corners > *::after {
-    content: '';
-    @apply absolute w-4 h-4 border-2 border-bdo-gold/50;
-  }
-
-  .bdo-corners::before { @apply top-0 left-0 rounded-tl-xl border-r-0 border-b-0; }
-  .bdo-corners::after { @apply top-0 right-0 rounded-tr-xl border-l-0 border-b-0; }
-
-  /* Buttons */
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bdo-black disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-
-  .btn-primary {
-    @apply btn bg-gradient-to-r from-bdo-gold to-bdo-gold-bright text-bdo-text-dark border-0 hover:from-bdo-gold-bright hover:to-bdo-gold focus-visible:ring-bdo-gold shadow-bdo-gold;
-  }
-
-  .btn-primary:active {
-    @apply scale-[0.98];
-  }
-
-  .btn-secondary {
-    @apply btn bg-bdo-black-elevated text-bdo-text-primary border border-bdo-border-gold/50 hover:border-bdo-gold hover:bg-bdo-black-card focus-visible:ring-bdo-gold;
-  }
-
-  .btn-danger {
-    @apply btn bg-gradient-to-r from-bdo-red to-bdo-red-dim text-white border-0 hover:from-bdo-red-dim hover:to-bdo-red focus-visible:ring-bdo-red;
-  }
-
-  .btn-ghost {
-    @apply btn bg-transparent text-bdo-text-secondary hover:text-bdo-gold hover:bg-bdo-black-elevated border-0 focus-visible:ring-bdo-gold;
-  }
-
-  .btn-icon {
-    @apply btn p-2.5;
-  }
-
-  .btn-sm {
-    @apply px-3 py-1.5 text-xs;
-  }
-
-  .btn-lg {
-    @apply px-8 py-3.5 text-base;
-  }
-
-  /* Inputs */
-  .input {
-    @apply w-full px-4 py-3 bg-bdo-black-elevated border border-bdo-border-gold/30 rounded-lg text-bdo-text-primary placeholder-bdo-text-muted transition-all duration-200 focus:outline-none focus:border-bdo-gold focus:ring-2 focus:ring-bdo-gold/20 focus:bg-bdo-black-card;
-  }
-
-  .input-error {
-    @apply border-bdo-red focus:border-bdo-red focus:ring-bdo-red/20;
-  }
-
-  .input-label {
-    @apply block text-sm font-medium text-bdo-text-secondary mb-1.5;
-  }
-
-  .input-help {
-    @apply mt-1.5 text-xs text-bdo-text-muted;
-  }
-
-  .input-error-text {
-    @apply mt-1.5 text-xs text-bdo-red;
-  }
-
-  .select {
-    @apply input appearance-none bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a0a0a0%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E')] bg-right-4 bg-no-repeat pr-10;
-  }
-
-  /* Cards */
-  .card {
-    @apply bdo-frame p-6;
-  }
-
-  .card-hover {
-    @apply card transition-all duration-300 hover:border-bdo-gold/50 hover:shadow-bdo-lg hover:shadow-bdo-gold hover:-translate-y-1;
-  }
-
-  .card-interactive {
-    @apply card-hover cursor-pointer;
-  }
-
-  /* Badges */
-  .badge {
-    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
-  }
-
-  .badge-gold {
-    @apply badge bg-bdo-gold/15 text-bdo-gold border border-bdo-gold/30;
-  }
-
-  .badge-silver {
-    @apply badge bg-bdo-white/10 text-bdo-white border border-bdo-white/20;
-  }
-
-  .badge-red {
-    @apply badge bg-bdo-red/15 text-bdo-red border border-bdo-red/30;
-  }
-
-  .badge-green {
-    @apply badge bg-bdo-green/15 text-bdo-green border border-bdo-green/30;
-  }
-
-  /* Progress Bar */
-  .progress {
-    @apply h-2 bg-bdo-black-elevated rounded-full overflow-hidden;
-  }
-
-  .progress-bar {
-    @apply h-full bg-gradient-to-r from-bdo-gold to-bdo-gold-bright rounded-full transition-all duration-500 ease-out;
-  }
-
-  /* Tooltip */
-  .tooltip {
-    @apply absolute z-[var(--z-tooltip)] px-3 py-2 text-xs font-medium text-bdo-text-dark bg-bdo-gold rounded-lg shadow-bdo-lg opacity-0 invisible transition-all duration-200 pointer-events-none whitespace-nowrap;
-  }
-
-  .tooltip::before {
-    content: '';
-    @apply absolute bottom-full left-1/2 -translate-x-1/2 border-5 border-transparent border-b-bdo-gold;
-  }
-
-  .has-tooltip:hover .tooltip,
-  .has-tooltip:focus .tooltip {
-    @apply opacity-100 visible translate-y-[-8px];
-  }
-
-  /* Modal */
-  .modal-backdrop {
-    @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-[var(--z-modal-backdrop)] transition-opacity duration-300;
-  }
-
-  .modal {
-    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[var(--z-modal)] w-full max-w-lg bdo-frame p-6 transform transition-all duration-300;
-  }
-
-  /* Table */
-  .table-container {
-    @apply overflow-x-auto rounded-lg border border-bdo-border-gold/20;
-  }
-
-  .table {
-    @apply w-full text-sm;
-  }
-
-  .table th {
-    @apply px-4 py-3 text-left font-semibold text-bdo-gold bg-bdo-black-elevated border-b border-bdo-border-gold/20 uppercase tracking-wider text-xs;
-  }
-
-  .table td {
-    @apply px-4 py-3 border-b border-bdo-border/50 text-bdo-text-secondary;
-  }
-
-  .table tr:last-child td {
-    @apply border-b-0;
-  }
-
-  .table tr:hover td {
-    @apply bg-bdo-black-elevated/50;
-  }
-
-  /* Tabs */
-  .tabs {
-    @apply flex gap-1 bg-bdo-black-elevated rounded-lg p-1 border border-bdo-border-gold/20;
-  }
-
-  .tab {
-    @apply px-4 py-2 rounded-md text-sm font-medium text-bdo-text-muted transition-all duration-200 hover:text-bdo-text-primary hover:bg-bdo-black-card;
-  }
-
-  .tab-active {
-    @apply tab text-bdo-text-dark bg-gradient-to-r from-bdo-gold to-bdo-gold-bright shadow-bdo-gold;
-  }
-
-  /* Dropdown */
-  .dropdown {
-    @apply absolute z-[var(--z-dropdown)] min-w-[180px] bdo-frame py-2 shadow-bdo-xl;
-  }
-
-  .dropdown-item {
-    @apply w-full px-4 py-2.5 text-left text-sm text-bdo-text-secondary hover:bg-bdo-black-elevated hover:text-bdo-gold transition-colors duration-150;
-  }
-
-  .dropdown-divider {
-    @apply h-px bg-bdo-border-gold/20 my-1;
-  }
-
-  /* Loading Spinner */
-  .spinner {
-    @apply inline-block animate-spin text-bdo-gold;
-  }
-
-  .spinner-lg {
-    @apply h-10 w-10;
-  }
-
-  .spinner-sm {
-    @apply h-5 w-5;
-  }
-
-  /* Avatar */
-  .avatar {
-    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-br from-bdo-gold to-bdo-gold-bright text-bdo-text-dark font-bold overflow-hidden;
-  }
-
-  .avatar-xs { @apply h-6 w-6 text-xs; }
-  .avatar-sm { @apply h-8 w-8 text-sm; }
-  .avatar-md { @apply h-10 w-10 text-base; }
-  .avatar-lg { @apply h-16 w-16 text-2xl; }
-  .avatar-xl { @apply h-24 w-24 text-4xl; }
-
-  /* Divider */
-  .divider {
-    @apply relative my-6;
-  }
-
-  .divider::before {
-    content: '';
-    @apply absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r transparent via-bdo-border-gold/30 transparent;
-  }
-
-  .divider-text {
-    @apply relative flex items-center justify-center;
-  }
-
-  .divider-text span {
-    @apply px-4 bg-bdo-black text-bdo-text-muted text-sm font-medium;
+    font-size: 14px;
   }
 }
 
-@layer utilities {
-  .text-balance { text-wrap: balance; }
+body {
+  background-color: var(--color-bdo-bg);
+  color: var(--color-bdo-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "liga", "calt";
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(200, 164, 93, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(200, 164, 93, 0.015) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.6;
+  margin: 0;
+}
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-bdo-text-primary);
+  line-height: 1.3;
+  margin: 0 0 var(--space-4);
+}
+
+h1 { font-size: 1.875rem; line-height: 2.25rem; }
+@media (min-width: 768px) { h1 { font-size: 2.25rem; line-height: 2.5rem; } }
+@media (min-width: 1024px) { h1 { font-size: 3rem; line-height: 1; } }
+
+h2 { font-size: 1.5rem; line-height: 2rem; }
+@media (min-width: 768px) { h2 { font-size: 1.875rem; line-height: 2.25rem; } }
+
+h3 { font-size: 1.25rem; line-height: 1.75rem; }
+@media (min-width: 768px) { h3 { font-size: 1.5rem; line-height: 2rem; } }
+
+h4 { font-size: 1.125rem; line-height: 1.75rem; }
+@media (min-width: 768px) { h4 { font-size: 1.25rem; line-height: 1.75rem; } }
+
+h5 { font-size: 1rem; line-height: 1.5rem; }
+@media (min-width: 768px) { h5 { font-size: 1.125rem; line-height: 1.75rem; } }
+
+h6 { font-size: 0.875rem; line-height: 1.25rem; }
+@media (min-width: 768px) { h6 { font-size: 1rem; line-height: 1.5rem; } }
+
+p {
+  line-height: 1.625;
+  color: var(--color-bdo-text-secondary);
+  margin: 0 0 var(--space-4);
+}
+
+a {
+  color: var(--color-bdo-gold);
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--color-bdo-gold-bright);
+}
+
+::selection {
+  background-color: rgba(200, 164, 93, 0.3);
+  color: var(--color-bdo-text-dark);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--color-bdo-bg-elevated);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-bdo-border-gold-dim);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-bdo-gold);
+}
+::-webkit-scrollbar-corner {
+  background-color: var(--color-bdo-bg-elevated);
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-bdo-text-muted);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+svg:not([class*="w-"]) {
+  width: 1em;
+  height: 1em;
+}
+
+/* Components */
+.bdo-frame {
+  position: relative;
+  background-color: var(--color-bdo-bg-elevated);
+  border: 1px solid rgba(200, 164, 93, 0.3);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background-image:
+    linear-gradient(180deg, rgba(200, 164, 93, 0.02) 0%, transparent 50%),
+    linear-gradient(90deg, rgba(200, 164, 93, 0.01) 0%, transparent 50%);
+  box-shadow: var(--shadow-bdo-md);
+}
+
+.bdo-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius-xl);
+  border-image: linear-gradient(135deg, var(--color-bdo-gold) 0%, var(--color-bdo-gold-bright) 50%, var(--color-bdo-gold) 100%) 1;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.bdo-frame--gold {
+  border-color: rgba(200, 164, 93, 0.5);
+  box-shadow: var(--shadow-bdo-md), var(--shadow-bdo-gold);
+}
+
+.bdo-corners {
+  position: relative;
+}
+
+.bdo-corners::before,
+.bdo-corners::after,
+.bdo-corners > *::before,
+.bdo-corners > *::after {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(200, 164, 93, 0.5);
+}
+
+.bdo-corners::before { top: 0; left: 0; border-top-left-radius: var(--radius-xl); border-right: 0; border-bottom: 0; }
+.bdo-corners::after { top: 0; right: 0; border-top-right-radius: var(--radius-xl); border-left: 0; border-bottom: 0; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+.btn:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-offset: 2px;
+  ring-offset-color: var(--color-bdo-bg);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, var(--color-bdo-gold), var(--color-bdo-gold-bright));
+  color: var(--color-bdo-text-dark);
+  border: none;
+  box-shadow: var(--shadow-bdo-gold);
+}
+.btn-primary:hover {
+  background: linear-gradient(to right, var(--color-bdo-gold-bright), var(--color-bdo-gold));
+}
+.btn-primary:focus-visible {
+  ring-color: var(--color-bdo-gold);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--color-bdo-bg-elevated);
+  color: var(--color-bdo-text-primary);
+  border: 1px solid rgba(200, 164, 93, 0.5);
+}
+.btn-secondary:hover {
+  border-color: var(--color-bdo-gold);
+  background-color: var(--color-bdo-bg-secondary);
+}
+.btn-secondary:focus-visible {
+  ring-color: var(--color-bdo-gold);
+}
+
+.btn-danger {
+  background: linear-gradient(to right, var(--color-bdo-red), var(--color-bdo-red-dim));
+  color: white;
+  border: none;
+}
+.btn-danger:hover {
+  background: linear-gradient(to right, var(--color-bdo-red-dim), var(--color-bdo-red));
+}
+.btn-danger:focus-visible {
+  ring-color: var(--color-bdo-red);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-bdo-text-secondary);
+  border: none;
+}
+.btn-ghost:hover {
+  color: var(--color-bdo-gold);
+  background-color: var(--color-bdo-bg-elevated);
+}
+.btn-ghost:focus-visible {
+  ring-color: var(--color-bdo-gold);
+}
+
+.btn-icon {
+  padding: 0.625rem;
+}
+
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.btn-lg {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bdo-bg-elevated);
+  border: 1px solid rgba(200, 164, 93, 0.3);
+  border-radius: var(--radius-lg);
+  color: var(--color-bdo-text-primary);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+.input::placeholder {
+  color: var(--color-bdo-text-muted);
+}
+.input:focus {
+  border-color: var(--color-bdo-gold);
+  box-shadow: 0 0 0 2px rgba(200, 164, 93, 0.2);
+  background-color: var(--color-bdo-bg-secondary);
+}
+
+.input-error {
+  border-color: var(--color-bdo-red);
+}
+.input-error:focus {
+  border-color: var(--color-bdo-red);
+  box-shadow: 0 0 0 2px rgba(216, 102, 102, 0.2);
+}
+
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-bdo-text-secondary);
+  margin-bottom: 0.375rem;
+}
+
+.input-help {
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--color-bdo-text-muted);
+}
+
+.input-error-text {
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--color-bdo-red);
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a8adb7%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+}
+
+.card {
+  padding: 1.5rem;
+}
+
+.card-hover {
+  transition: all 300ms;
+}
+.card-hover:hover {
+  border-color: rgba(200, 164, 93, 0.5);
+  box-shadow: var(--shadow-bdo-lg), var(--shadow-bdo-gold);
+  transform: translateY(-0.25rem);
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-gold {
+  background-color: rgba(200, 164, 93, 0.15);
+  color: var(--color-bdo-gold);
+  border: 1px solid rgba(200, 164, 93, 0.3);
+}
+
+.badge-silver {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-red {
+  background-color: rgba(216, 102, 102, 0.15);
+  color: var(--color-bdo-red);
+  border: 1px solid rgba(216, 102, 102, 0.3);
+}
+
+.badge-green {
+  background-color: rgba(111, 191, 115, 0.15);
+  color: var(--color-bdo-green);
+  border: 1px solid rgba(111, 191, 115, 0.3);
+}
+
+.badge-blue {
+  background-color: rgba(108, 155, 210, 0.15);
+  color: var(--color-bdo-blue);
+  border: 1px solid rgba(108, 155, 210, 0.3);
+}
+
+.badge-amber {
+  background-color: rgba(216, 168, 78, 0.15);
+  color: var(--color-bdo-amber);
+  border: 1px solid rgba(216, 168, 78, 0.3);
+}
+
+.progress {
+  height: 0.5rem;
+  background-color: var(--color-bdo-bg-elevated);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-bdo-gold), var(--color-bdo-gold-bright));
+  border-radius: var(--radius-full);
+  transition: all 500ms ease-out;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: var(--z-tooltip);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-bdo-text-dark);
+  background-color: var(--color-bdo-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-bdo-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-bottom-color: var(--color-bdo-gold);
+}
+
+.has-tooltip:hover .tooltip,
+.has-tooltip:focus .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-8px);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-modal-backdrop);
+  transition: opacity 300ms;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-modal);
+  width: 100%;
+  max-width: 32rem;
+  padding: 1.5rem;
+  transition: all 300ms;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(200, 164, 93, 0.2);
+}
+
+.table {
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-bdo-gold);
+  background-color: var(--color-bdo-bg-elevated);
+  border-bottom: 1px solid rgba(200, 164, 93, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(48, 54, 66, 0.5);
+  color: var(--color-bdo-text-secondary);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background-color: rgba(23, 26, 33, 0.5);
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  background-color: var(--color-bdo-bg-elevated);
+  border-radius: var(--radius-lg);
+  padding: 0.25rem;
+  border: 1px solid rgba(200, 164, 93, 0.2);
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-bdo-text-muted);
+  transition: all 200ms;
+}
+.tab:hover {
+  color: var(--color-bdo-text-primary);
+  background-color: var(--color-bdo-bg-secondary);
+}
+
+.tab-active {
+  color: var(--color-bdo-text-dark);
+  background: linear-gradient(to right, var(--color-bdo-gold), var(--color-bdo-gold-bright));
+  box-shadow: var(--shadow-bdo-gold);
+}
+
+.dropdown {
+  position: absolute;
+  z-index: var(--z-dropdown);
+  min-width: 11.25rem;
+  padding: 0.5rem 0;
+  box-shadow: var(--shadow-bdo-xl);
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  color: var(--color-bdo-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 150ms, background-color 150ms;
+}
+.dropdown-item:hover {
+  background-color: var(--color-bdo-bg-elevated);
+  color: var(--color-bdo-gold);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: rgba(200, 164, 93, 0.2);
+  margin: 0.25rem 0;
+}
+
+.spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+  color: var(--color-bdo-gold);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner-lg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.spinner-sm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: linear-gradient(to bottom right, var(--color-bdo-gold), var(--color-bdo-gold-bright));
+  color: var(--color-bdo-text-dark);
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.avatar-xs { width: 1.5rem; height: 1.5rem; font-size: 0.75rem; }
+.avatar-sm { width: 2rem; height: 2rem; font-size: 0.875rem; }
+.avatar-md { width: 2.5rem; height: 2.5rem; font-size: 1rem; }
+.avatar-lg { width: 4rem; height: 4rem; font-size: 1.5rem; }
+.avatar-xl { width: 6rem; height: 6rem; font-size: 2.25rem; }
+
+.divider {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(200, 164, 93, 0.3), transparent);
+}
+
+.divider-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-text span {
+  padding: 0 1rem;
+  background-color: var(--color-bdo-bg);
+  color: var(--color-bdo-text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Layout containers */
+.container-main {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+}
+@media (min-width: 1024px) {
+  .container-main {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+}
 
-  /* Gradient Text */
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-bdo-gold via-bdo-gold-bright to-bdo-gold bg-clip-text text-transparent;
+.container-narrow {
+  width: 100%;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-narrow {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-
-  /* Glass Effect */
-  .glass {
-    @apply bg-bdo-black-elevated/50 backdrop-blur-lg border border-bdo-border-gold/10;
+}
+@media (min-width: 1024px) {
+  .container-narrow {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+}
 
-  /* Glow Effects */
-  .glow-gold {
-    box-shadow: var(--shadow-bdo-gold);
+.container-form {
+  width: 100%;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-form {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-
-  .glow-gold-lg {
-    box-shadow: var(--shadow-bdo-gold-lg);
+}
+@media (min-width: 1024px) {
+  .container-form {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+}
 
-  /* Tip Box */
-  .tip-box {
-    @apply p-4 rounded-lg border-l-4 bg-bdo-black-elevated/50;
-  }
+.page-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--color-bdo-gold), var(--color-bdo-gold-bright), var(--color-bdo-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) { .page-title { font-size: 2.25rem; } }
 
-  .tip-box--info {
-    @apply border-bdo-blue bg-bdo-blue/5;
-  }
+.page-subtitle {
+  color: var(--color-bdo-text-secondary);
+  font-size: 1.125rem;
+}
 
-  .tip-box--warning {
-    @apply border-bdo-gold bg-bdo-gold/5;
-  }
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-bdo-text-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-  .tip-box--danger {
-    @apply border-bdo-red bg-bdo-red/5;
-  }
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
 
-  .tip-box--success {
-    @apply border-bdo-green bg-bdo-green/5;
-  }
+.card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .tip-box__title {
-    @apply font-medium mb-2 flex items-center gap-2;
-  }
+.stat-card {
+  transition: all 300ms;
+}
+.stat-card:hover {
+  border-color: rgba(200, 164, 93, 0.5);
+  box-shadow: var(--shadow-bdo-lg), var(--shadow-bdo-gold);
+  transform: translateY(-0.25rem);
+}
 
-  .tip-box__text {
-    @apply text-sm text-bdo-text-secondary leading-relaxed;
-  }
+.stat-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-bdo-lg);
+}
 
-  /* Animation Keyframes */
-  @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 42, 0.35); }
-    50% { box-shadow: 0 0 40px rgba(212, 168, 42, 0.55); }
-  }
+.stat-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
 
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
+.stat-label {
+  color: var(--color-bdo-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-  }
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(23, 26, 33, 0.5);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(200, 164, 93, 0.2);
+  transition: border-color 200ms;
+}
+.list-item:hover {
+  border-color: rgba(200, 164, 93, 0.3);
+}
 
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+.list-item-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
-  @keyframes slide-in-right {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
+.list-item-content {
+  flex: 1;
+  min-width: 0;
+}
 
-  @keyframes scale-in {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
+.list-item-title {
+  color: var(--color-bdo-text-primary);
+  font-weight: 500;
+  margin: 0;
+}
 
-  .animate-pulse-gold { animation: pulse-gold 2s ease-in-out infinite; }
-  .animate-shimmer { background: linear-gradient(90deg, transparent, rgba(212,168,42,0.1), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
-  .animate-float { animation: float 3s ease-in-out infinite; }
-  .animate-fade-in-up { animation: fade-in-up 0.5s ease-out forwards; }
-  .animate-slide-in-right { animation: slide-in-right 0.4s ease-out forwards; }
-  .animate-scale-in { animation: scale-in 0.3s ease-out forwards; }
+.list-item-subtitle {
+  color: var(--color-bdo-text-muted);
+  font-size: 0.875rem;
+  margin: 0;
+}
 
-  /* Stagger Delays */
-  .stagger-1 { animation-delay: 50ms; }
-  .stagger-2 { animation-delay: 100ms; }
-  .stagger-3 { animation-delay: 150ms; }
-  .stagger-4 { animation-delay: 200ms; }
-  .stagger-5 { animation-delay: 250ms; }
-  .stagger-6 { animation-delay: 300ms; }
+/* Utilities */
+.text-balance { text-wrap: balance; }
 
-  /* Focus Visible */
-  .focus-visible-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bdo-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bdo-black;
-  }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
 
-  /* Truncate */
-  .truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .truncate-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.text-gradient-gold {
+  background: linear-gradient(to right, var(--color-bdo-gold), var(--color-bdo-gold-bright), var(--color-bdo-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background-color: rgba(23, 26, 33, 0.5);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 164, 93, 0.1);
+}
+
+.glow-gold { box-shadow: var(--shadow-bdo-gold); }
+.glow-gold-lg { box-shadow: var(--shadow-bdo-gold-lg); }
+
+.tip-box {
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid;
+  background-color: rgba(23, 26, 33, 0.5);
+}
+.tip-box--info { border-color: var(--color-bdo-blue); background-color: rgba(108, 155, 210, 0.05); }
+.tip-box--warning { border-color: var(--color-bdo-gold); background-color: rgba(200, 164, 93, 0.05); }
+.tip-box--danger { border-color: var(--color-bdo-red); background-color: rgba(216, 102, 102, 0.05); }
+.tip-box--success { border-color: var(--color-bdo-green); background-color: rgba(111, 191, 115, 0.05); }
+
+.tip-box__title {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tip-box__text {
+  font-size: 0.875rem;
+  color: var(--color-bdo-text-secondary);
+  line-height: 1.625;
+  margin: 0;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 20px rgba(200, 164, 93, 0.25); }
+  50% { box-shadow: 0 0 40px rgba(200, 164, 93, 0.4); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-pulse-gold { animation: pulse-gold 2s ease-in-out infinite; }
+.animate-shimmer { background: linear-gradient(90deg, transparent, rgba(200,164,93,0.1), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.5s ease-out forwards; }
+.animate-slide-in-right { animation: slide-in-right 0.4s ease-out forwards; }
+.animate-scale-in { animation: scale-in 0.3s ease-out forwards; }
+
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }
+
+.focus-visible-ring:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--color-bdo-gold);
+  ring-offset: 2px;
+  ring-offset-color: var(--color-bdo-bg);
+}
+
+.truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.truncate-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+.bg-grid-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%23c8a45d' stroke-width='0.3' stroke-opacity='0.08'/%3E%3C/svg%3E");
+}
+
+.bg-radial-gold {
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(200, 164, 93, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(200, 164, 93, 0.015) 0%, transparent 50%);
 }

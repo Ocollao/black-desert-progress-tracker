@@ -1,18 +1,7 @@
-<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-bdo-bg">
   <!-- Background decoration -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-bdo-gold/5 rounded-full blur-3xl animate-float"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-bdo-gold/5 rounded-full blur-3xl animate-float" style="animation-delay: -1.5s;"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-      <svg class="w-full h-full opacity-5" viewBox="0 0 800 600" preserveAspectRatio="none">
-        <defs>
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--color-bdo-gold)" stroke-width="0.5" stroke-opacity="0.05"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)"></rect>
-      </svg>
-    </div>
+  <div class="absolute inset-0 pointer-events-none bg-radial-gold">
+    <div class="absolute inset-0 opacity-5 bg-grid-pattern"></div>
   </div>
 
   <div class="relative z-10 w-full max-w-md">
@@ -28,7 +17,7 @@
     </div>
 
     <!-- Login Card -->
-    <div class="bdo-frame p-8 animate-fade-in-up stagger-2" style="animation-delay: 100ms;">
+    <bdp-card variant="gold" class="animate-fade-in-up stagger-2">
       <div class="text-center mb-8">
         <h2 class="text-2xl font-bold text-bdo-text-primary mb-1">Iniciar Sesión</h2>
         <p class="text-bdo-text-secondary">Accede a tu panel de progreso</p>
@@ -94,18 +83,15 @@
         </div>
 
         <!-- Submit Button -->
-        <button
+        <bdp-button
           type="submit"
+          variant="primary"
+          size="lg"
+          fullWidth
           [disabled]="!isFormValid() || isLoading()"
-          class="btn-primary w-full py-3.5 text-base animate-pulse-gold"
+          [loading]="isLoading()"
         >
-          @if (isLoading()) {
-            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Iniciando sesión...
-          } @else {
+          @if (!isLoading()) {
             <span class="flex items-center justify-center gap-2">
               Iniciar Sesión
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +99,7 @@
               </svg>
             </span>
           }
-        </button>
+        </bdp-button>
       </form>
 
       <div class="mt-6 pt-6 border-t border-bdo-border-gold/20">
@@ -124,7 +110,7 @@
           </a>
         </p>
       </div>
-    </div>
+    </bdp-card>
 
     <!-- Version info -->
     <div class="text-center mt-8 text-bdo-text-muted text-xs animate-fade-in-up stagger-6">

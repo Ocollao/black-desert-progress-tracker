@@ -1,21 +1,10 @@
-<div class="min-h-screen relative overflow-hidden">
+<div class="min-h-screen relative overflow-hidden bg-bdo-bg">
   <!-- Background -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-bdo-gold/3 rounded-full blur-3xl"></div>
-    <div class="absolute inset-0 opacity-5">
-      <svg class="w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="none">
-        <defs>
-          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="var(--color-bdo-gold)" stroke-width="0.3" stroke-opacity="0.08"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)"></rect>
-      </svg>
-    </div>
+  <div class="absolute inset-0 pointer-events-none bg-radial-gold">
+    <div class="absolute inset-0 opacity-5 bg-grid-pattern"></div>
   </div>
 
-  <div class="relative z-10 max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+  <div class="relative z-10 container-narrow py-8 sm:px-6 lg:px-8">
     @if (isLoading()) {
       <div class="flex items-center justify-center h-64 animate-fade-in-up">
         <div class="text-center">
@@ -30,9 +19,7 @@
     } @else if (error()) {
       <div class="text-center py-12 bdo-frame animate-fade-in-up">
         <p class="text-bdo-red mb-4">{{ error() }}</p>
-        <button (click)="router.navigate(['/characters'])" class="btn-secondary">
-          Volver a la lista
-        </button>
+        <a routerLink="/characters" class="btn-secondary">Volver a la lista</a>
       </div>
     } @else if (character(); as char) {
       <!-- Header with back button -->
@@ -46,7 +33,7 @@
       </div>
 
       <!-- Main Card -->
-      <bdp-card variant="gold" class="overflow-hidden">
+      <bdp-card variant="gold" class="overflow-hidden animate-fade-in-up stagger-2">
         <!-- Character Header Image -->
         <div class="relative aspect-[16/9] -mx-6 -mt-6 mb-6 overflow-hidden">
           @if (char.avatarUrl) {
@@ -120,7 +107,7 @@
                 @if (char.seasonCharacter) {
                   <bdp-badge variant="gold" size="sm">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 002-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                     {{ char.seasonCharacter }}
                   </bdp-badge>
@@ -129,12 +116,12 @@
             </div>
 
             <div class="flex gap-3">
-              <button (click)="onEdit()" class="btn-secondary flex-1 justify-center py-2.5">
+              <a [routerLink]="['/characters', char.id, 'edit']" class="btn-secondary flex-1 justify-center py-2.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
                 Editar
-              </button>
+              </a>
               <button (click)="onDelete()" class="btn-danger flex-1 justify-center py-2.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -150,8 +137,8 @@
             <div class="lg:col-span-2 space-y-6">
               <!-- Combat Progress Card -->
               <bdp-card variant="interactive">
-                <div class="flex items-center gap-3 mb-5">
-                  <div class="w-10 h-10 bg-gradient-to-br from-bdo-red to-bdo-red-dim rounded-lg flex items-center justify-center">
+                <div class="card-header">
+                  <div class="card-icon bg-gradient-to-br from-bdo-red to-bdo-red-dim">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
@@ -199,7 +186,7 @@
 
               <!-- Enhancement Progress -->
               <bdp-card variant="interactive">
-                <h3 class="text-lg font-bold text-bdo-text-primary mb-4 flex items-center gap-2">
+                <h3 class="section-title">
                   <svg class="w-5 h-5 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
@@ -256,41 +243,41 @@
             <div class="space-y-6">
               <!-- General Info -->
               <bdp-card variant="default">
-                <h3 class="text-lg font-bold text-bdo-text-primary mb-4 flex items-center gap-2">
+                <h3 class="section-title">
                   <svg class="w-5 h-5 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Información General
                 </h3>
                 <dl class="space-y-3">
-                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Estado</dt>
                     <dd class="font-medium flex items-center gap-2" [class]="char.isActive ? 'text-bdo-green' : 'text-bdo-red'">
                       <span class="w-2 h-2 rounded-full" [class]="char.isActive ? 'bg-bdo-green' : 'bg-bdo-red'"></span>
                       {{ char.isActive ? 'Activo' : 'Inactivo' }}
                     </dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Clase</dt>
                     <dd class="font-medium text-bdo-text-primary capitalize">{{ classLabels[char.class] }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Nivel</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ char.level }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Experiencia</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ char.experience.toLocaleString() }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Gear Score</dt>
                     <dd class="font-bold text-bdo-gold">{{ char.gearScore.toLocaleString() }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Creado el</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ formatDate(char.createdAt) }}</dd>
                   </div>
-                  <div class="flex justify-between p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20">
+                  <div class="flex justify-between p-3 bg-bdo-bg-elevated/50 rounded-lg border border-bdo-border-gold/20">
                     <dt class="text-bdo-text-secondary">Actualizado</dt>
                     <dd class="font-medium text-bdo-text-primary">{{ formatDate(char.updatedAt) }}</dd>
                   </div>
@@ -299,58 +286,58 @@
 
               <!-- Objectives -->
               <bdp-card variant="gold">
-                <h3 class="text-lg font-bold text-bdo-gold mb-4 flex items-center gap-2">
+                <h3 class="section-title">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Próximos Objetivos
                 </h3>
                 <ul class="space-y-3">
-                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
-                    <div class="w-8 h-8 bg-bdo-gold/15 rounded-lg flex items-center justify-center group-hover:bg-bdo-gold/25 transition-colors flex-shrink-0">
-                      <svg class="w-4 h-4 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li class="list-item group">
+                    <div class="list-item-icon bg-bdo-gold/15 text-bdo-gold group-hover:bg-bdo-gold/25 transition-colors">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-bdo-text-primary font-medium">Alcanza 261 AP / 300 DP</p>
-                      <p class="text-bdo-text-muted text-sm">Para contenido PvE básico (Mediah, Valencia)</p>
+                    <div class="list-item-content">
+                      <p class="list-item-title">Alcanza 261 AP / 300 DP</p>
+                      <p class="list-item-subtitle">Para contenido PvE básico (Mediah, Valencia)</p>
                     </div>
                     <bdp-badge variant="gold" size="sm">Prioridad Alta</bdp-badge>
                   </li>
-                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
-                    <div class="w-8 h-8 bg-bdo-red/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg class="w-4 h-4 text-bdo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li class="list-item group">
+                    <div class="list-item-icon bg-bdo-red/15 text-bdo-red group-hover:bg-bdo-red/25 transition-colors">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-bdo-text-primary font-medium">Mejora accesorios a TRI/TET</p>
-                      <p class="text-bdo-text-muted text-sm">Anillo/Collar/Cinturón/Orejas - Prioridad: Tungrad, Crescent, Basilisk, Ogre</p>
+                    <div class="list-item-content">
+                      <p class="list-item-title">Mejora accesorios a TRI/TET</p>
+                      <p class="list-item-subtitle">Anillo/Collar/Cinturón/Orejas - Prioridad: Tungrad, Crescent, Basilisk, Ogre</p>
                     </div>
                     <bdp-badge variant="red" size="sm">En Progreso</bdp-badge>
                   </li>
-                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
-                    <div class="w-8 h-8 bg-bdo-green/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg class="w-4 h-4 text-bdo-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li class="list-item group">
+                    <div class="list-item-icon bg-bdo-green/15 text-bdo-green group-hover:bg-bdo-green/25 transition-colors">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-bdo-text-primary font-medium">Sube a nivel 62</p>
-                      <p class="text-bdo-text-muted text-sm">Accede a contenido de fin de juego (Gyfin, Mirumok, Sycraia)</p>
+                    <div class="list-item-content">
+                      <p class="list-item-title">Sube a nivel 62</p>
+                      <p class="list-item-subtitle">Accede a contenido de fin de juego (Gyfin, Mirumok, Sycraia)</p>
                     </div>
                     <bdp-badge variant="green" size="sm">Pendiente</bdp-badge>
                   </li>
-                  <li class="flex items-start gap-3 p-3 bg-bdo-black-elevated/50 rounded-lg border border-bdo-border-gold/20 group hover:border-bdo-gold/30 transition-colors">
-                    <div class="w-8 h-8 bg-bdo-gold/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg class="w-4 h-4 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li class="list-item group">
+                    <div class="list-item-icon bg-bdo-gold/15 text-bdo-gold group-hover:bg-bdo-gold/25 transition-colors">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-bdo-text-primary font-medium">Despierta habilidades de vida</p>
-                      <p class="text-bdo-text-muted text-sm">Cocina/Alquimia Guru para ganancia de plata pasiva</p>
+                    <div class="list-item-content">
+                      <p class="list-item-title">Despierta habilidades de vida</p>
+                      <p class="list-item-subtitle">Cocina/Alquimia Guru para ganancia de plata pasiva</p>
                     </div>
                     <bdp-badge variant="gold" size="sm">Opcional</bdp-badge>
                   </li>
@@ -359,7 +346,7 @@
 
               <!-- Quick Actions -->
               <bdp-card variant="default">
-                <h3 class="text-lg font-bold text-bdo-text-primary mb-4 flex items-center gap-2">
+                <h3 class="section-title">
                   <svg class="w-5 h-5 text-bdo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l4-4z" />
                   </svg>
@@ -389,7 +376,7 @@
 
   <!-- Footer -->
   <footer class="relative z-10 border-t border-bdo-border-gold/20 py-6 mt-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="container-narrow text-center">
       <p class="text-bdo-text-muted text-sm">Black Desert Progress Tracker v0.4.3</p>
       <p class="text-bdo-text-muted text-xs mt-1">Hecho con <span class="text-bdo-red">♥</span> para la comunidad de Black Desert Online</p>
     </div>
