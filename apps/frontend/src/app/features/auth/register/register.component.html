@@ -1,14 +1,14 @@
-<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-bdo-bg">
+<div class="auth-page relative overflow-hidden bg-bdo-bg">
   <!-- Background decoration -->
   <div class="absolute inset-0 pointer-events-none bg-radial-gold">
     <div class="absolute inset-0 opacity-5 bg-grid-pattern"></div>
   </div>
 
-  <div class="relative z-10 w-full max-w-md">
+  <div class="auth-page__content">
     <!-- BDO Logo -->
-    <div class="text-center mb-10 animate-fade-in-up">
-      <div class="mx-auto w-20 h-20 bg-gradient-to-br from-bdo-gold to-bdo-gold-bright rounded-2xl flex items-center justify-center shadow-bdo-gold-lg mb-6 animate-float">
-        <svg class="w-12 h-12 text-bdo-text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+    <div class="auth-page__brand animate-fade-in-up">
+      <div class="auth-page__mark bg-gradient-to-br from-bdo-gold to-bdo-gold-bright rounded-2xl shadow-bdo-gold-lg animate-float">
+        <svg class="text-bdo-text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
         </svg>
       </div>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- Register Card -->
-    <bdp-card variant="gold" class="animate-fade-in-up stagger-2">
+    <bdp-card variant="gold" class="auth-card animate-fade-in-up stagger-2">
       <div class="text-center mb-8">
         <h2 class="text-2xl font-bold text-bdo-text-primary mb-1">Crear Cuenta</h2>
         <p class="text-bdo-text-secondary">Comienza a seguir tu progreso en BDO</p>
@@ -39,8 +39,8 @@
         <div>
           <label for="username" class="input-label">Nombre de Usuario</label>
           <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-bdo-text-muted pointer-events-none">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="auth-icon absolute inset-y-0 left-0 text-bdo-text-muted pointer-events-none">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </span>
@@ -63,8 +63,8 @@
         <div>
           <label for="email" class="input-label">Correo Electrónico</label>
           <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-bdo-text-muted pointer-events-none">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="auth-icon absolute inset-y-0 left-0 text-bdo-text-muted pointer-events-none">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </span>
@@ -85,8 +85,8 @@
         <div>
           <label for="password" class="input-label">Contraseña</label>
           <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-bdo-text-muted pointer-events-none">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="auth-icon absolute inset-y-0 left-0 text-bdo-text-muted pointer-events-none">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
               </svg>
             </span>
@@ -108,8 +108,8 @@
         <div>
           <label for="confirmPassword" class="input-label">Confirmar Contraseña</label>
           <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-bdo-text-muted pointer-events-none">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="auth-icon absolute inset-y-0 left-0 text-bdo-text-muted pointer-events-none">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </span>
@@ -125,14 +125,14 @@
               [class.input-error]="confirmPassword() && !passwordsMatch()"
             >
             @if (confirmPassword() && !passwordsMatch()) {
-              <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-bdo-red">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span class="auth-icon absolute inset-y-0 right-0 text-bdo-red">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </span>
             } @else if (confirmPassword() && passwordsMatch()) {
-              <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-bdo-green">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span class="auth-icon absolute inset-y-0 right-0 text-bdo-green">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
               </span>
@@ -140,7 +140,7 @@
           </div>
           @if (confirmPassword() && !passwordsMatch()) {
             <p class="input-error-text flex items-center gap-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="auth-button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
               Las contraseñas no coinciden
@@ -179,7 +179,7 @@
     </bdp-card>
 
     <!-- Version info -->
-    <div class="text-center mt-8 text-bdo-text-muted text-xs animate-fade-in-up stagger-6">
+    <div class="auth-page__footer text-bdo-text-muted text-xs animate-fade-in-up stagger-6">
       <p>Black Desert Progress Tracker v0.4.3</p>
       <p class="mt-1">Hecho con <span class="text-bdo-red">♥</span> para la comunidad de BDO</p>
     </div>

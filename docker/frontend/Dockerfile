@@ -11,7 +11,7 @@ COPY apps/frontend .
 
 EXPOSE 4200
 
-CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--poll", "2000"]
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--poll", "2000", "--proxy-config", "proxy.docker.conf.json"]
 
 # Production stage
 FROM node:22-alpine AS builder

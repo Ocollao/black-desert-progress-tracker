@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.8] - 2026-09-03
+
+### Added
+- Sistema visual BDO consolidado con tokens CSS reales para colores, tipografia, superficies, radios, sombras y estados.
+- Composicion responsive de autenticacion con iconos SVG dimensionados, centrado consistente y soporte para pantallas pequenas.
+- Fuentes explicitas de Tailwind para plantillas HTML y componentes TypeScript.
+- Configuracion de proxy Docker dedicada para enrutar `/api` al servicio backend.
+
+### Changed
+- Rediseño del App Shell con navegacion, marca, sidebar, profundidad visual y reticula ambiental.
+- Rediseño del dashboard con hero de personaje, estadisticas interactivas, objetivo protagonista y paneles de actividad.
+- Corregido el overflow horizontal producido por decoraciones transformadas en movil.
+- Corregida la carga de dependencias PostCSS en el contenedor frontend.
+- Ajustados los puertos documentados del backend a `3001` y la carga del archivo `.env` desde el workspace.
+
+### Fixed
+- Corregida la entrega de estilos globales para evitar paginas sin layout, con iconos gigantes o contenido colapsado a la izquierda.
+- Corregido el acceso de autenticacion desde el frontend Docker.
+
 ## [0.4.7] - 2026-09-03
 
 ### Added

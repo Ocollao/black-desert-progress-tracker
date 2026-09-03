@@ -1,3 +1,42 @@
+.app-shell {
+  background:
+    linear-gradient(90deg, rgba(194, 154, 82, 0.035) 1px, transparent 1px) 0 0 / 5rem 5rem,
+    linear-gradient(rgba(194, 154, 82, 0.02) 1px, transparent 1px) 0 0 / 5rem 5rem;
+  overflow-x: clip;
+}
+
+.app-topbar {
+  background-image: linear-gradient(180deg, rgba(29, 33, 36, 0.98), rgba(11, 13, 15, 0.92));
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.app-brand__mark {
+  position: relative;
+}
+
+.app-brand__mark::after {
+  border: 1px solid rgba(11, 13, 15, 0.38);
+  content: '';
+  inset: 0.25rem;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.app-sidebar {
+  background-image: linear-gradient(115deg, rgba(35, 40, 42, 0.7), rgba(11, 13, 15, 0.97) 42%);
+  box-shadow: 10px 0 32px rgba(0, 0, 0, 0.2);
+}
+
+.app-content {
+  min-height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  .app-shell {
+    background-size: 4rem 4rem;
+  }
+}
+
 .nav-link {
   display: flex;
   align-items: center;

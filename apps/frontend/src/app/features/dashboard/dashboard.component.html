@@ -8,7 +8,7 @@
 } @else {
   <div class="animate-fade-in-up space-y-5">
     <!-- ═══ CABECERA: quién soy / dónde estoy / cuánto llevo ═══ -->
-    <section class="bdo-frame bdo-frame--gold overflow-hidden">
+    <section class="dashboard-hero bdo-frame bdo-frame--gold overflow-hidden">
       <div class="flex flex-col gap-4 p-4 sm:p-5 lg:flex-row lg:items-center">
         <div class="flex items-center gap-4">
           <div class="relative shrink-0">
@@ -29,7 +29,7 @@
             { k: 'DP', v: char.dp, d: 'Defensa' },
             { k: 'EVA', v: char.evasion, d: 'Evasión' }
           ]; track s.k) {
-            <div class="rounded-xl border border-bdo-gold/20 bg-bdo-bg/60 px-2 py-2 text-center">
+            <div class="dashboard-stat rounded-xl border border-bdo-gold/20 bg-bdo-bg/60 px-2 py-2 text-center">
               <dt class="text-[10px] font-semibold uppercase tracking-widest text-bdo-text-muted">{{ s.k }}</dt>
               <dd class="font-display text-lg font-bold text-bdo-gold-bright sm:text-xl">{{ s.v }}</dd>
               <dd class="hidden text-[10px] text-bdo-text-muted sm:block">{{ s.d }}</dd>
@@ -47,7 +47,7 @@
       <!-- ═══ COLUMNA PRINCIPAL ═══ -->
       <div class="space-y-5 xl:col-span-2">
         <!-- Progreso general por categoría -->
-        <bdp-card variant="default">
+        <bdp-card variant="default" class="dashboard-panel">
           <bdp-section-heading title="Progreso del personaje" subtitle="Seis pilares · actualizado hoy" icon="⬢">
             <a slot="action" routerLink="/progresion" class="text-xs font-semibold uppercase tracking-widest text-bdo-gold hover:text-bdo-gold-bright">Ver árbol →</a>
           </bdp-section-heading>
@@ -66,7 +66,7 @@
         </bdp-card>
 
         <!-- Siguiente objetivo recomendado -->
-        <section class="relative overflow-hidden rounded-xl border border-bdo-gold/50 bg-gradient-to-br from-bdo-gold/15 via-bdo-bg-elevated to-bdo-bg-elevated p-4 shadow-bdo-gold sm:p-5">
+        <section class="dashboard-goal relative overflow-hidden rounded-xl border border-bdo-gold/50 bg-gradient-to-br from-bdo-gold/15 via-bdo-bg-elevated to-bdo-bg-elevated p-4 shadow-bdo-gold sm:p-5">
           <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-bdo-gold-bright to-transparent"></div>
           <div class="flex flex-wrap items-center gap-2">
             <bdp-badge variant="gold" size="sm">✦ Siguiente objetivo recomendado</bdp-badge>
@@ -88,7 +88,7 @@
         </section>
 
         <!-- Próximos objetivos (densidad compacta) -->
-        <bdp-card variant="default">
+        <bdp-card variant="default" class="dashboard-panel">
           <bdp-section-heading title="Próximos objetivos" subtitle="Qué me falta · por prioridad" icon="🎯">
             <a slot="action" routerLink="/objetivos" class="text-xs font-semibold uppercase tracking-widest text-bdo-gold hover:text-bdo-gold-bright">Todos →</a>
           </bdp-section-heading>
@@ -113,13 +113,13 @@
 
       <!-- ═══ COLUMNA LATERAL ═══ -->
       <div class="space-y-5">
-        <bdp-card variant="gold">
+        <bdp-card variant="gold" class="dashboard-panel dashboard-panel--activity">
           <bdp-section-heading title="Actividad reciente" subtitle="Historia del personaje" icon="📜"></bdp-section-heading>
           <bdp-activity-timeline [items]="activity"></bdp-activity-timeline>
           <a routerLink="/objetivos" class="mt-3 block text-center text-[11px] font-semibold uppercase tracking-widest text-bdo-gold hover:text-bdo-gold-bright">Ver toda la actividad →</a>
         </bdp-card>
 
-        <bdp-card variant="default">
+        <bdp-card variant="default" class="dashboard-panel">
           <bdp-section-heading title="Accesos rápidos" subtitle="Salta a cualquier registro" icon="🧭"></bdp-section-heading>
           <div class="grid grid-cols-2 gap-2">
             @for (l of [

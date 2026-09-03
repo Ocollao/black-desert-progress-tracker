@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-bdo-bg text-bdo-text-primary">
+<div class="app-shell min-h-screen bg-bdo-bg text-bdo-text-primary">
   <!-- Textura ambiental -->
   <div class="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
     <div class="absolute inset-0 bg-radial-gold"></div>
@@ -6,14 +6,14 @@
   </div>
 
   <!-- ═══ TOPBAR ═══ -->
-  <header class="fixed inset-x-0 top-0 z-40 border-b border-bdo-gold/20 bg-bdo-bg/90 backdrop-blur-md">
+  <header class="app-topbar fixed inset-x-0 top-0 z-40 border-b border-bdo-gold/20 bg-bdo-bg/90 backdrop-blur-md">
     <div class="flex h-14 items-center gap-3 px-3 sm:px-5">
       <button (click)="toggleSidebar()" class="flex h-9 w-9 items-center justify-center rounded-lg border border-bdo-gold/30 text-bdo-gold transition-colors hover:bg-bdo-bg-elevated lg:hidden" aria-label="Abrir menú">
         <span class="text-lg">☰</span>
       </button>
 
-      <a routerLink="/dashboard" class="flex items-center gap-2.5">
-        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-bdo-gold to-bdo-gold-bright text-lg font-bold text-bdo-text-dark shadow-bdo-gold">◈</span>
+      <a routerLink="/dashboard" class="app-brand flex items-center gap-2.5">
+        <span class="app-brand__mark flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-bdo-gold to-bdo-gold-bright text-lg font-bold text-bdo-text-dark shadow-bdo-gold">◈</span>
         <span class="hidden flex-col leading-none sm:flex">
           <span class="font-display text-sm font-bold tracking-widest text-gradient-gold">BDO PROGRESS</span>
           <span class="text-[10px] uppercase tracking-[0.2em] text-bdo-text-muted">Tracker · v0.4.7</span>
@@ -51,7 +51,7 @@
   </header>
 
   <!-- ═══ SIDEBAR (desktop) ═══ -->
-  <aside class="fixed bottom-0 left-0 top-14 z-30 hidden w-60 flex-col border-r border-bdo-gold/20 bg-bdo-bg/95 backdrop-blur-md lg:flex" aria-label="Navegación principal">
+  <aside class="app-sidebar fixed bottom-0 left-0 top-14 z-30 hidden w-60 flex-col border-r border-bdo-gold/20 bg-bdo-bg/95 backdrop-blur-md lg:flex" aria-label="Navegación principal">
     <nav class="flex-1 overflow-y-auto p-3">
       @for (section of sections; track section) {
         <p class="mb-1.5 mt-4 px-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-bdo-text-muted first:mt-1">{{ section }}</p>
@@ -106,7 +106,7 @@
   }
 
   <!-- ═══ CONTENIDO ═══ -->
-  <div class="relative z-10 pt-14 lg:pl-60">
+  <div class="app-content relative z-10 pt-14 lg:pl-60">
     <main class="mx-auto w-full max-w-7xl px-3 pb-24 pt-5 sm:px-5 lg:pb-12">
       <router-outlet></router-outlet>
     </main>

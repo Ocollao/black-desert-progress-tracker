@@ -87,7 +87,7 @@ cp .env.example .env
 npm run docker:up
 
 # En terminales separadas:
-npm run dev:backend  # Inicia en http://localhost:3000
+npm run dev:backend  # Inicia en http://localhost:3001
 npm run dev:frontend # Inicia en http://localhost:4200
 ```
 
@@ -106,8 +106,8 @@ npm run dev:frontend # Inicia en http://localhost:4200
 ## Documentación de la API
 
 Cuando el backend esté corriendo, visita:
-- **Swagger UI**: http://localhost:3000/api/docs
-- **Health Check**: http://localhost:3000/api/health
+- **Swagger UI**: http://localhost:3001/api/docs
+- **Health Check**: http://localhost:3001/api/health
 
 ## Desarrollo
 
