@@ -4,6 +4,11 @@ import * as dotenv from 'dotenv';
 import * as path from 'path';
 import { User } from '../user/user.entity';
 import { Character } from '../character/character.entity';
+import { Item } from '../item/item.entity';
+import { ItemCategory } from '../item/item-category.entity';
+import { KnowledgeEntry, KnowledgeTheme } from '../knowledge/knowledge.entity';
+import { KnowledgeProgress, KnowledgeRequirement } from '../knowledge/knowledge-progress.entity';
+import { KnowledgeEnergy } from '../knowledge/knowledge-energy.entity';
 
 const rootPath = path.resolve(__dirname, '../../../..');
 dotenv.config({ path: path.resolve(rootPath, '.env') });
@@ -16,8 +21,20 @@ export const AppDataSource = new DataSource({
   username: process.env.DATABASE_USER || 'postgres',
   password: process.env.DATABASE_PASSWORD || 'postgres',
   database: process.env.DATABASE_NAME || 'bdo_tracker',
-  entities: [User, Character],
-  migrations: ['src/database/migrations/*{.ts,.js}'],
+  entities: [
+    User,
+    Character,
+    Item,
+    ItemCategory,
+    KnowledgeEntry,
+    KnowledgeTheme,
+    KnowledgeProgress,
+    KnowledgeRequirement,
+    KnowledgeEnergy,
+  ],
+  migrations: [path.join(__dirname, 'migrations', '*{.ts,.js}')],
   synchronize: false,
-  logging: process.env.NODE_ENV === 'development',
+  logging:
+    process.env.NODE_ENV === 'development' &&
+    process.env.BDO_SEED_SQL_LOGGING === 'true',
 });

@@ -10,6 +10,9 @@ export interface Character {
   experience: number;
   seasonCharacter: string | null;
   gearScore: number;
+  garmothUrl: string | null;
+  garmothCode: string | null;
+  linkedGearScore: number | null;
   avatarUrl: string | null;
   isActive: boolean;
   createdAt: string;
@@ -58,6 +61,9 @@ export interface UpdateCharacterRequest {
   experience?: number;
   seasonCharacter?: string;
   gearScore?: number;
+  garmothUrl?: string;
+  garmothCode?: string;
+  linkedGearScore?: number;
   avatarUrl?: string;
   isActive?: boolean;
 }

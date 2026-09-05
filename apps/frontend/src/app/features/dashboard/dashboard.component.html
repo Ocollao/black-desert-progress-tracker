@@ -5,6 +5,14 @@
       <p class="text-sm text-bdo-text-secondary">Abriendo el registro del aventurero…</p>
     </div>
   </div>
+} @else if (!hasCharacter()) {
+  <section class="dashboard-empty bdo-frame bdo-frame--gold animate-fade-in-up">
+    <div class="dashboard-empty__mark" aria-hidden="true">◈</div>
+    <p class="bdo-kicker">Registro del aventurero</p>
+    <h1>Comienza tu aventura</h1>
+    <p class="dashboard-empty__copy">Todavía no tienes un personaje registrado. Crea tu primer aventurero para empezar a seguir equipo, objetivos y progreso.</p>
+    <a routerLink="/characters/create" class="btn btn-primary">Crear mi primer personaje <span aria-hidden="true">→</span></a>
+  </section>
 } @else {
   <div class="animate-fade-in-up space-y-5">
     <!-- ═══ CABECERA: quién soy / dónde estoy / cuánto llevo ═══ -->

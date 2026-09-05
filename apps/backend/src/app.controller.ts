@@ -8,7 +8,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @ApiOperation({ summary: 'Get application info' })
+  @ApiOperation({ summary: 'Obtener información de la aplicación' })
   getInfo() {
     return this.appService.getInfo();
   }

@@ -1,18 +1,21 @@
 # Black Desert Progress Tracker
 
+> **Versión actual: 0.5.0** — Ver [CHANGELOG.md](CHANGELOG.md) para el historial de cambios.
+
 Una aplicación web full-stack profesional para jugadores de Black Desert Online que permite rastrear y gestionar la progresión de sus personajes.
 
-## Características (Planificadas)
+## Características
 
+- 📖 **Sistema de Conocimiento** - Árbol de 11 ramas estilo bdocodex/BDO, cómo conseguir cada registro, requisitos previos, marcar como obtenido y puntos de energía
 - 🎮 **Gestión de Personajes** - Múltiples personajes por usuario
 - ⚔️ **Progresión de Combate** - Seguimiento de objetivos de mejora de equipo
-- 🛠️ **Habilidades de Vida** - Cocina, Alquimia, Recolección, Pesca y más
-- 🌳 **Árbol de Progresión** - Mapas de progresión visuales e interactivos
-- 📅 **Desafíos Diarios/Semanales** - Desafíos recurrentes automatizados
-- ⏰ **Recordatorios** - Notificaciones personalizadas para actividades del juego
-- 🏆 **Logros** - Seguimiento de logros y hitos
+- 🛠️ **Habilidades de Vida** - Cocina, Alquimia, Recolección, Pesca y más (planificado)
+- 🌳 **Árbol de Progresión** - Mapas de progresión visuales e interactivos (planificado)
+- 📅 **Desafíos Diarios/Semanales** - Desafíos recurrentes automatizados (planificado)
+- ⏰ **Recordatorios** - Notificaciones personalizadas para actividades del juego (planificado)
+- 🏆 **Logros** - Seguimiento de logros y hitos (planificado)
 - 📊 **Panel de Control** - Vista general completa de la progresión
-- 🔍 **Búsqueda y Filtros** - Encuentra items, desafíos y objetivos rápidamente
+- 🔍 **Búsqueda y Filtros** - Encuentra items, conocimientos y objetivos rápidamente
 
 ## Stack Tecnológico
 
@@ -81,6 +84,17 @@ cp .env.example .env
 # Editar .env con tu configuración
 ```
 
+Para importar los datos externos de BDO, configura `BDO_DATA_DIR` apuntando a la
+carpeta extraída, por ejemplo `C:\BDO_Data_Fixed`, y ejecuta:
+
+```bash
+npm run db:seed
+```
+
+El importador procesa `items.json` y `knowledge.json` por lotes, conserva los
+identificadores `urn` de origen y puede ejecutarse varias veces sin duplicar
+registros. El dataset externo y sus iconos no se incluyen en Git.
+
 4. Iniciar entorno de desarrollo:
 ```bash
 # Iniciar base de datos y servicios
@@ -102,6 +116,17 @@ npm run dev:frontend # Inicia en http://localhost:4200
 | `npm run lint` | Lint de todas las aplicaciones |
 | `npm run docker:up` | Iniciar contenedores Docker |
 | `npm run docker:down` | Detener contenedores Docker |
+| `npm run db:seed` | Importar items y knowledge desde `BDO_DATA_DIR` |
+| `npm run scrape:knowledge:seed --workspace=apps/backend` | Sembrar energía manual inicial de conocimiento |
+| `npm run scrape:knowledge --workspace=apps/backend` | Scrapear bdocodex (requiere `BDO_SCRAPE_ENABLED=true`) |
+
+## Accesos (entorno Docker)
+
+- **Frontend**: http://localhost:4201 (conocimiento en `/conocimiento`)
+- **API**: http://localhost:3001/api
+- **Swagger UI**: http://localhost:3001/api/docs
+- **Salud**: http://localhost:3001/api/health
+- **Conocimiento**: `GET /api/knowledge`, `/api/knowledge/themes/tree`, `/api/knowledge/recent`, `/api/knowledge/energy`
 
 ## Documentación de la API
 

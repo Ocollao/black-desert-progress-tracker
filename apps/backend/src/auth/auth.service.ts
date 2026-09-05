@@ -22,7 +22,7 @@ export class AuthService {
   async login(loginDto: LoginDto): Promise<AuthResponseDto> {
     const user = await this.userService.findByEmail(loginDto.email);
     if (!user) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException('Credenciales inválidas');
     }
 
     const isPasswordValid = await this.userService.validatePassword(
@@ -30,11 +30,11 @@ export class AuthService {
       loginDto.password,
     );
     if (!isPasswordValid) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException('Credenciales inválidas');
     }
 
     if (!user.isActive) {
-      throw new UnauthorizedException('Account is deactivated');
+      throw new UnauthorizedException('Cuenta desactivada');
     }
 
     const accessToken = this.generateToken(user);
@@ -56,7 +56,7 @@ export class AuthService {
   async validateUser(payload: JwtPayload): Promise<User> {
     const user = await this.userService.findById(payload.sub);
     if (!user || !user.isActive) {
-      throw new UnauthorizedException('User not found or inactive');
+      throw new UnauthorizedException('Usuario no encontrado o inactivo');
     }
     return user;
   }

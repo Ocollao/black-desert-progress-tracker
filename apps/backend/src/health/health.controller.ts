@@ -9,23 +9,23 @@ export class HealthController {
 
   @Get()
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Check application health' })
-  @ApiResponse({ status: 200, description: 'Application is healthy' })
-  @ApiResponse({ status: 503, description: 'Application is unhealthy' })
+  @ApiOperation({ summary: 'Comprobar la salud de la aplicación' })
+  @ApiResponse({ status: 200, description: 'La aplicación está sana' })
+  @ApiResponse({ status: 503, description: 'La aplicación no está sana' })
   async getHealth() {
     return this.healthService.getHealth();
   }
 
   @Get('ready')
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Check if application is ready to serve requests' })
+  @ApiOperation({ summary: 'Comprobar si la aplicación está lista para atender peticiones' })
   async getReadiness() {
     return this.healthService.getHealth();
   }
 
   @Get('live')
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Check if application is alive' })
+  @ApiOperation({ summary: 'Comprobar si la aplicación sigue viva' })
   getLiveness() {
     return { status: 'ok', timestamp: new Date().toISOString() };
   }

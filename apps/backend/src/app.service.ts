@@ -5,8 +5,8 @@ export class AppService {
   getInfo() {
     return {
       name: 'Black Desert Progress Tracker',
-      version: '0.1.0',
-      description: 'API for tracking Black Desert Online character progression',
+      version: '0.5.0',
+      description: 'API para rastrear la progresión de personajes de Black Desert Online',
       environment: process.env.NODE_ENV || 'development',
     };
   }

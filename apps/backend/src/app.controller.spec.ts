@@ -18,7 +18,7 @@ describe('AppController', () => {
     it('should return application info', () => {
       const result = appController.getInfo();
       expect(result).toHaveProperty('name', 'Black Desert Progress Tracker');
-      expect(result).toHaveProperty('version', '0.1.0');
+      expect(result).toHaveProperty('version', '0.5.0');
       expect(result).toHaveProperty('description');
       expect(result).toHaveProperty('environment');
     });

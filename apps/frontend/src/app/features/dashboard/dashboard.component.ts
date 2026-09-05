@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { CharacterService } from '../characters/character.service';
 import { Router } from '@angular/router';
 import {
   CardComponent, BadgeComponent, ProgressComponent,
@@ -19,9 +20,11 @@ import { mockActivity, mockCategoryProgress, mockCharacter, mockGoals } from '..
 export class DashboardComponent implements OnInit {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
+  private readonly characterService = inject(CharacterService);
 
   user = this.authService.user;
   isLoading = signal(true);
+  hasCharacter = signal(false);
 
   char = mockCharacter;
   categories = mockCategoryProgress;
@@ -31,16 +34,29 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.user()) {
-      this.isLoading.set(false);
+      this.loadCharacters();
     } else {
       this.authService.getProfile().subscribe({
-        next: () => this.isLoading.set(false),
+        next: () => this.loadCharacters(),
         error: () => {
           this.authService.logout();
           this.router.navigate(['/login']);
         },
       });
     }
+  }
+
+  private loadCharacters(): void {
+    this.characterService.getAll().subscribe({
+      next: (characters) => {
+        this.hasCharacter.set(characters.length > 0);
+        this.isLoading.set(false);
+      },
+      error: () => {
+        this.hasCharacter.set(false);
+        this.isLoading.set(false);
+      },
+    });
   }
 
   logout(): void {

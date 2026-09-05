@@ -21,12 +21,12 @@ import { CardComponent, SectionHeadingComponent } from '../../shared/index';
           <option>Dornvak · Berserker · Nv.61</option>
           <option>Mirabel · Shai · Nv.64</option>
         </select>
-        <p class="input-help">Los datos son de muestra en v0.4.7 — la API real llegará en próximas versiones.</p>
+        <p class="input-help">Los datos son de muestra en v0.4.8 — la API real llegará en próximas versiones.</p>
       </bdp-card>
       <bdp-card variant="default">
         <bdp-section-heading title="Apariencia" subtitle="Cómodo durante muchas horas" icon="🌙"></bdp-section-heading>
         <div class="flex items-center justify-between gap-3 rounded-lg border border-bdo-gold/20 bg-bdo-bg/60 px-3 py-2.5">
-          <span class="text-sm text-bdo-text-primary">Tema de ruinas ancestrales <span class="text-bdo-text-muted">(único en v0.4.7)</span></span>
+          <span class="text-sm text-bdo-text-primary">Tema de ruinas ancestrales <span class="text-bdo-text-muted">(único en v0.4.8)</span></span>
           <span class="badge badge-gold">Activo</span>
         </div>
         <div class="mt-2 flex items-center justify-between gap-3 rounded-lg border border-white/10 px-3 py-2.5 opacity-60">

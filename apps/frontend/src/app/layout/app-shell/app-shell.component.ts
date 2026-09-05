@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { AvatarComponent, BadgeComponent, ButtonComponent } from '../../shared/index';
 import { mockCharacter } from '../../core/mock/bdo-mock-data';
+import { CharacterService } from '../../features/characters/character.service';
 
 interface NavItem {
   path: string;
@@ -25,6 +26,7 @@ const NAV: NavItem[] = [
   { path: '/colecciones', label: 'Colecciones', icon: '💎', section: 'Mundo' },
   { path: '/characters', label: 'Mis PJs', icon: '👥', section: 'Cuenta' },
   { path: '/configuracion', label: 'Ajustes', icon: '⚙', section: 'Cuenta' },
+  { path: '/vinculado', label: 'Vinculado', icon: '↗', section: 'Cuenta' },
 ];
 
 @Component({
@@ -37,12 +39,21 @@ const NAV: NavItem[] = [
 export class AppShellComponent {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
+  private readonly characterService = inject(CharacterService);
 
   user = this.authService.user;
   char = mockCharacter;
   sidebarOpen = signal(false);
+  hasCharacter = signal(false);
   nav = NAV;
   sections = ['Principal', 'Progreso', 'Mundo', 'Cuenta'];
+
+  ngOnInit(): void {
+    this.characterService.getAll().subscribe({
+      next: (characters) => this.hasCharacter.set(characters.length > 0),
+      error: () => this.hasCharacter.set(false),
+    });
+  }
 
   itemsFor(section: string): NavItem[] {
     return this.nav.filter((n) => n.section === section);

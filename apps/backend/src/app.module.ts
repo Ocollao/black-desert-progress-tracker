@@ -8,6 +8,9 @@ import { HealthService } from './health/health.service';
 import { UserModule } from './user/user.module';
 import { CharacterModule } from './character/character.module';
 import { AuthModule } from './auth/auth.module';
+import { ItemModule } from './item/item.module';
+import { KnowledgeModule } from './knowledge/knowledge.module';
+import { AssetsModule } from './assets/assets.module';
 
 @Module({
   imports: [
@@ -35,6 +38,9 @@ import { AuthModule } from './auth/auth.module';
     UserModule,
     CharacterModule,
     AuthModule,
+    ItemModule,
+    KnowledgeModule,
+    AssetsModule,
   ],
   controllers: [AppController, HealthController],
   providers: [AppService, HealthService],

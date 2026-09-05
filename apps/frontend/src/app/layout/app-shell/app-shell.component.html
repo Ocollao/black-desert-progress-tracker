@@ -16,11 +16,12 @@
         <span class="app-brand__mark flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-bdo-gold to-bdo-gold-bright text-lg font-bold text-bdo-text-dark shadow-bdo-gold">◈</span>
         <span class="hidden flex-col leading-none sm:flex">
           <span class="font-display text-sm font-bold tracking-widest text-gradient-gold">BDO PROGRESS</span>
-          <span class="text-[10px] uppercase tracking-[0.2em] text-bdo-text-muted">Tracker · v0.4.7</span>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-bdo-text-muted">Tracker · v0.4.8</span>
         </span>
       </a>
 
       <!-- Personaje activo (desktop) -->
+      @if (hasCharacter()) {
       <div class="ml-4 hidden items-center gap-2.5 rounded-lg border border-bdo-gold/20 bg-bdo-bg-elevated/60 px-3 py-1.5 md:flex">
         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-bdo-gold to-bdo-gold-bright text-xs font-bold text-bdo-text-dark">{{ char.name.charAt(0) }}</span>
         <span class="leading-tight">
@@ -28,8 +29,12 @@
           <span class="block font-mono text-[11px] text-bdo-gold">{{ char.ap }}/{{ char.aap }}/{{ char.dp }} · GS {{ char.cp * 10 + 12 }}</span>
         </span>
       </div>
+      } @else {
+        <span class="app-topbar__empty hidden md:block">Sin personaje activo</span>
+      }
 
       <!-- Progreso global mini -->
+      @if (hasCharacter()) {
       <div class="ml-auto hidden items-center gap-2 lg:flex" title="Progreso total del personaje">
         <span class="text-[10px] uppercase tracking-widest text-bdo-text-muted">Progreso</span>
         <span class="h-1.5 w-28 overflow-hidden rounded-full bg-bdo-bg-elevated">
@@ -37,6 +42,7 @@
         </span>
         <span class="font-mono text-xs text-bdo-gold">{{ char.progress }}%</span>
       </div>
+      }
 
       <div class="ml-auto flex items-center gap-2 lg:ml-4">
         @if (user(); as u) {
@@ -70,6 +76,7 @@
         </ul>
       }
     </nav>
+    @if (hasCharacter()) {
     <div class="border-t border-bdo-gold/20 p-3">
       <div class="rounded-xl border border-bdo-gold/25 bg-gradient-to-br from-bdo-gold/10 to-transparent p-3">
         <p class="font-display text-xs font-semibold text-bdo-gold-bright">◆ Siguiente objetivo</p>
@@ -77,6 +84,15 @@
         <a routerLink="/objetivos" class="mt-2 block text-center text-[11px] font-semibold uppercase tracking-widest text-bdo-gold hover:text-bdo-gold-bright">Ver progreso →</a>
       </div>
     </div>
+    } @else {
+      <div class="border-t border-bdo-gold/20 p-3">
+        <div class="app-sidebar__empty">
+          <p class="bdo-kicker">Primer paso</p>
+          <p class="mt-1 text-xs text-bdo-text-secondary">Crea tu personaje para comenzar el registro.</p>
+          <a routerLink="/characters/create" class="mt-3 block text-center text-[11px] font-semibold uppercase tracking-widest text-bdo-gold hover:text-bdo-gold-bright">Crear personaje</a>
+        </div>
+      </div>
+    }
   </aside>
 
   <!-- ═══ SIDEBAR móvil (drawer) ═══ -->
@@ -111,7 +127,7 @@
       <router-outlet></router-outlet>
     </main>
     <footer class="border-t border-bdo-gold/15 py-5 text-center">
-      <p class="text-xs text-bdo-text-muted">Black Desert Progress Tracker · v0.4.7 — Registro del aventurero</p>
+      <p class="text-xs text-bdo-text-muted">Black Desert Progress Tracker · v0.4.8 — Registro del aventurero</p>
       <p class="mt-1 text-[11px] text-bdo-text-muted/70">Hecho para la comunidad de Black Desert Online ◆ Datos de muestra — conecta tu API para datos reales</p>
     </footer>
   </div>

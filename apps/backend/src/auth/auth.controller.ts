@@ -28,25 +28,25 @@ export class AuthController {
 
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'User login' })
+  @ApiOperation({ summary: 'Inicio de sesión de usuario' })
   @ApiResponse({
     status: 200,
-    description: 'Login successful',
+    description: 'Inicio de sesión correcto',
     type: AuthResponseDto,
   })
-  @ApiResponse({ status: 401, description: 'Invalid credentials' })
+  @ApiResponse({ status: 401, description: 'Credenciales inválidas' })
   async login(@Body() loginDto: LoginDto): Promise<AuthResponseDto> {
     return this.authService.login(loginDto);
   }
 
   @Post('register')
-  @ApiOperation({ summary: 'User registration' })
+  @ApiOperation({ summary: 'Registro de usuario' })
   @ApiResponse({
     status: 201,
-    description: 'Registration successful',
+    description: 'Registro correcto',
     type: AuthResponseDto,
   })
-  @ApiResponse({ status: 409, description: 'Email or username already exists' })
+  @ApiResponse({ status: 409, description: 'El email o nombre de usuario ya existe' })
   async register(@Body() registerDto: RegisterDto): Promise<AuthResponseDto> {
     return this.authService.register(registerDto);
   }
@@ -54,9 +54,9 @@ export class AuthController {
   @Get('me')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Get current user profile' })
-  @ApiResponse({ status: 200, description: 'User profile', type: User })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiOperation({ summary: 'Obtener el perfil del usuario actual' })
+  @ApiResponse({ status: 200, description: 'Perfil del usuario', type: User })
+  @ApiResponse({ status: 401, description: 'No autorizado' })
   async getProfile(@Request() req: { user: User }): Promise<User> {
     return this.authService.getProfile(req.user.id);
   }

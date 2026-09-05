@@ -37,12 +37,14 @@ services:
       JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-in-production}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-1d}
       FRONTEND_URL: http://localhost:4200
+      BDO_DATA_DIR: /bdo-data
       PORT: 3000
     ports:
       - "3001:3000"
     volumes:
       - ./apps/backend:/app
       - /app/node_modules
+      - ${BDO_DATA_DIR:-C:/BDO_Data_Fixed}:/bdo-data:ro
     depends_on:
       postgres:
         condition: service_healthy

@@ -74,6 +74,11 @@ export const routes: Routes = [
           import('./features/configuracion/configuracion.component').then((m) => m.ConfiguracionComponent),
       },
       {
+        path: 'vinculado',
+        loadComponent: () =>
+          import('./features/vinculado/vinculado.component').then((m) => m.VinculadoComponent),
+      },
+      {
         path: 'characters',
         children: [
           {

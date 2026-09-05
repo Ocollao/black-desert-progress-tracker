@@ -9,6 +9,7 @@ import {
   Min,
   Max,
   IsBoolean,
+  Matches,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { CharacterClass } from '../character.entity';
@@ -54,6 +55,29 @@ export class UpdateCharacterDto {
   @IsNumber()
   @Min(0)
   gearScore?: number;
+
+  @ApiProperty({ example: 'https://garmoth.com/character/seraphelle-abc123', required: false })
+  @IsOptional()
+  @IsUrl()
+  @Matches(/^https:\/\/garmoth\.com\/character\//, {
+    message: 'garmothUrl debe ser una URL válida de personaje de Garmoth',
+  })
+  @MaxLength(255)
+  garmothUrl?: string;
+
+  @ApiProperty({ example: 'abc123', required: false })
+  @IsOptional()
+  @IsString()
+  @MinLength(2)
+  @MaxLength(100)
+  garmothCode?: string;
+
+  @ApiProperty({ example: 712, required: false })
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  @Max(10000)
+  linkedGearScore?: number;
 
   @ApiProperty({ example: 'https://example.com/avatar.png', required: false })
   @IsOptional()

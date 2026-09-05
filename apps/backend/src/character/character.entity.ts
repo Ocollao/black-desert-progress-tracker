@@ -64,6 +64,15 @@ export class Character {
   gearScore: number;
 
   @Column({ nullable: true, length: 255 })
+  garmothUrl: string;
+
+  @Column({ nullable: true, length: 100 })
+  garmothCode: string;
+
+  @Column({ nullable: true, type: 'int' })
+  linkedGearScore: number;
+
+  @Column({ nullable: true, length: 255 })
   avatarUrl: string;
 
   @Column({ default: true })

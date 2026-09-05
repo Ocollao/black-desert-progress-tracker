@@ -1,32 +1,44 @@
-# Changelog
+# Registro de cambios
 
-All notable changes to this project will be documented in this file.
+Todos los cambios notables de este proyecto se documentan en este archivo.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+y este proyecto sigue el [Versionado Semántico](https://semver.org/spec/v2.0.0.html).
+
+## [0.5.0] - 2026-09-05
+
+### Añadido
+- Sistema de conocimiento híbrido bdocodex + BDO: árbol de 11 ramas con conteos, buscador con Reiniciar, resumen de energía y % obtenidos.
+- Detalle circular tipo BDO con cómo conseguir, requisitos previos clicables, marcar como obtenido / quitar y panel de últimos conocimientos.
+- Endpoints `GET /knowledge/themes/tree`, `GET /knowledge/recent` y `GET /knowledge/energy` con filtro por descendientes.
+- Tabla `knowledge_energy` con seed manual (689 + base 50 = 739) y scraper seguro `scrape:knowledge` tras flag `BDO_SCRAPE_ENABLED`.
+
+### Corregido
+- Requisitos previos ahora se calculan por requisito (antes flag global replicado).
+- Scraper aislado tras flag para no tumbar el arranque; energía con fallback `estimated`.
 
 ## [0.4.8] - 2026-09-03
 
-### Added
+### Añadido
 - Sistema visual BDO consolidado con tokens CSS reales para colores, tipografia, superficies, radios, sombras y estados.
 - Composicion responsive de autenticacion con iconos SVG dimensionados, centrado consistente y soporte para pantallas pequenas.
 - Fuentes explicitas de Tailwind para plantillas HTML y componentes TypeScript.
 - Configuracion de proxy Docker dedicada para enrutar `/api` al servicio backend.
 
-### Changed
+### Cambiado
 - Rediseño del App Shell con navegacion, marca, sidebar, profundidad visual y reticula ambiental.
 - Rediseño del dashboard con hero de personaje, estadisticas interactivas, objetivo protagonista y paneles de actividad.
 - Corregido el overflow horizontal producido por decoraciones transformadas en movil.
 - Corregida la carga de dependencias PostCSS en el contenedor frontend.
 - Ajustados los puertos documentados del backend a `3001` y la carga del archivo `.env` desde el workspace.
 
-### Fixed
+### Corregido
 - Corregida la entrega de estilos globales para evitar paginas sin layout, con iconos gigantes o contenido colapsado a la izquierda.
 - Corregido el acceso de autenticacion desde el frontend Docker.
 
 ## [0.4.7] - 2026-09-03
 
-### Added
+### Añadido
 - Nuevo App Shell con sidebar por secciones, topbar con personaje activo y progreso global, drawer móvil y nav inferior
 - Páginas nuevas: Personaje, Equipo, Progresión (árbol), Objetivos, Desafíos, LifeSkill, Aventuras y regiones, Conocimiento, Colecciones y logros, Ajustes
 - Nuevos componentes reutilizables: section-heading, progress-ring, equipment-slot, item-card, activity-timeline
@@ -35,72 +47,72 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.4.3] - 2026-09-02
 
-### Changed
-- Updated shared UI components (avatar, badge, button, card, modal, progress)
-- Improved authentication forms (login, register)
-- Enhanced character management views (list, detail, form)
-- Refined dashboard layout
-- Updated global styles
+### Cambiado
+- Componentes compartidos de interfaz actualizados (avatar, insignia, botón, tarjeta, modal, progreso)
+- Formularios de autenticación mejorados (login, registro)
+- Vistas de gestión de personajes mejoradas (lista, detalle, formulario)
+- Diseño del panel refinado
+- Estilos globales actualizados
 
 ## [0.4.2] - 2026-08-31
 
-### Changed
-- Complete UI redesign with Gold/Black/White color palette
-- Simplified design system removing bronze/silver variants
-- Updated all components to use strict gold accent on black backgrounds with white text
-- Enhanced responsive design across all interfaces
-- Improved contrast and accessibility with cleaner color scheme
+### Cambiado
+- Rediseño completo de la interfaz con paleta Oro/Negro/Blanco
+- Sistema de diseño simplificado eliminando variantes bronce/plata
+- Todos los componentes usan acento dorado estricto sobre fondos negros con texto blanco
+- Diseño responsive mejorado en todas las interfaces
+- Contraste y accesibilidad mejorados con un esquema de colores más limpio
 
 ## [0.2.0] - 2026-08-29
 
-### Added
-- User entity with email, username, password hash, avatar, admin status
-- Character entity with name, class (24 BDO classes), level, experience, gear score, season character
-- Database migrations for users and characters tables with proper indexes and foreign keys
-- User module with repository pattern (UserRepository, UserService, UserController)
-- Character module with repository pattern (CharacterRepository, CharacterService, CharacterController)
-- RESTful API endpoints for user and character management
-- Swagger documentation for new endpoints
-- bcrypt password hashing (cost factor 12)
-- TypeORM data source configuration for CLI migrations
+### Añadido
+- Entidad de usuario con email, nombre de usuario, hash de contraseña, avatar y estado de administrador
+- Entidad de personaje con nombre, clase (24 clases de BDO), nivel, experiencia, puntuación de equipo y personaje de temporada
+- Migraciones de base de datos para las tablas de usuarios y personajes con índices y claves foráneas adecuados
+- Módulo de usuario con patrón repositorio (UserRepository, UserService, UserController)
+- Módulo de personaje con patrón repositorio (CharacterRepository, CharacterService, CharacterController)
+- Endpoints de API RESTful para la gestión de usuarios y personajes
+- Documentación Swagger de los nuevos endpoints
+- Hash de contraseñas con bcrypt (factor de coste 12)
+- Configuración de TypeORM DataSource para migraciones por CLI
 
-### Technical
-- Repository pattern implementation for data access layer
-- UUID primary keys for all entities
-- Cascade delete: characters deleted when user is deleted
-- Database indexes on email, username, character name, user_id
-- Migration-based schema management (no synchronize in production)
-- Type-safe relations with FindOptionsRelations
+### Técnico
+- Implementación del patrón repositorio para la capa de acceso a datos
+- Claves primarias UUID para todas las entidades
+- Borrado en cascada: los personajes se eliminan al eliminar el usuario
+- Índices de base de datos en email, nombre de usuario, nombre de personaje y user_id
+- Gestión del esquema basada en migraciones (sin synchronize en producción)
+- Relaciones con tipos seguros mediante FindOptionsRelations
 
-### Documentation
-- Updated ROADMAP.md with v0.2 completion status
-- Updated CHANGELOG.md
+### Documentación
+- ROADMAP.md actualizado con el estado de v0.2 completada
+- CHANGELOG.md actualizado
 
 ## [0.1.0] - 2026-08-28
 
-### Added
-- Initial project structure with monorepo setup
-- Angular 20 frontend with Tailwind CSS v4
-- NestJS backend with TypeORM and PostgreSQL
-- Docker Compose for development environment
-- Health check endpoints (`/api/health`, `/api/health/ready`, `/api/health/live`)
-- Swagger/OpenAPI documentation at `/api/docs`
-- Global validation pipe with class-validator
-- CORS configuration for frontend
-- ESLint and Prettier configuration
-- Git repository with conventional commits structure
-- Environment configuration with .env.example
-- Root workspace package.json with convenient scripts
+### Añadido
+- Estructura inicial del proyecto con configuración de monorepo
+- Frontend Angular 20 con Tailwind CSS v4
+- Backend NestJS con TypeORM y PostgreSQL
+- Docker Compose para el entorno de desarrollo
+- Endpoints de salud (`/api/health`, `/api/health/ready`, `/api/health/live`)
+- Documentación Swagger/OpenAPI en `/api/docs`
+- Pipe global de validación con class-validator
+- Configuración CORS para el frontend
+- Configuración de ESLint y Prettier
+- Repositorio Git con estructura de commits convencionales
+- Configuración de entorno con .env.example
+- package.json raíz del workspace con scripts útiles
 
-### Technical
-- TypeScript strict mode enabled
-- Frontend: Standalone components, Signals, Reactive Forms
-- Backend: Clean architecture modules, Repository pattern, Guards
-- Database: TypeORM with synchronize in development
-- Docker: Multi-stage builds for production
+### Técnico
+- Modo estricto de TypeScript habilitado
+- Frontend: componentes standalone, Signals, formularios reactivos
+- Backend: módulos con arquitectura limpia, patrón repositorio, Guards
+- Base de datos: TypeORM con synchronize en desarrollo
+- Docker: builds multi-etapa para producción
 
-### Documentation
-- README.md with project overview and setup instructions
-- ARCHITECTURE.md with detailed architecture documentation
-- CONTRIBUTING.md with contribution guidelines
-- ROADMAP.md with version plan and progress tracking
+### Documentación
+- README.md con resumen del proyecto e instrucciones de instalación
+- ARCHITECTURE.md con documentación detallada de la arquitectura
+- CONTRIBUTING.md con guía de contribución
+- ROADMAP.md con plan de versiones y seguimiento del progreso

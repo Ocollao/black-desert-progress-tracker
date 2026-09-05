@@ -21,7 +21,7 @@ export class CharacterService {
       createCharacterDto.name,
     );
     if (nameExists) {
-      throw new ConflictException('Character name already taken');
+      throw new ConflictException('Nombre de personaje en uso');
     }
 
     const character = await this.characterRepository.create({
@@ -39,7 +39,7 @@ export class CharacterService {
   async findById(id: string): Promise<Character> {
     const character = await this.characterRepository.findById(id);
     if (!character) {
-      throw new NotFoundException('Character not found');
+      throw new NotFoundException('Personaje no encontrado');
     }
     return character;
   }
@@ -60,7 +60,7 @@ export class CharacterService {
     const character = await this.findById(id);
 
     if (character.userId !== userId) {
-      throw new ForbiddenException('You can only update your own characters');
+      throw new ForbiddenException('Solo puedes actualizar tus propios personajes');
     }
 
     if (updateCharacterDto.name && updateCharacterDto.name !== character.name) {
@@ -68,7 +68,7 @@ export class CharacterService {
         updateCharacterDto.name,
       );
       if (nameExists) {
-        throw new ConflictException('Character name already taken');
+        throw new ConflictException('Nombre de personaje en uso');
       }
     }
 
@@ -77,7 +77,7 @@ export class CharacterService {
       updateCharacterDto,
     );
     if (!updatedCharacter) {
-      throw new NotFoundException('Character not found after update');
+      throw new NotFoundException('Personaje no encontrado tras actualizar');
     }
     return updatedCharacter;
   }
@@ -86,7 +86,7 @@ export class CharacterService {
     const character = await this.findById(id);
 
     if (character.userId !== userId) {
-      throw new ForbiddenException('You can only delete your own characters');
+      throw new ForbiddenException('Solo puedes eliminar tus propios personajes');
     }
 
     await this.characterRepository.delete(id);

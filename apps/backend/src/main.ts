@@ -1,10 +1,11 @@
 import { NestFactory } from '@nestjs/core';
+import { ExpressAdapter } from '@nestjs/platform-express';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, new ExpressAdapter());
 
   app.setGlobalPrefix('api');
 
@@ -19,19 +20,24 @@ async function bootstrap() {
     }),
   );
 
+  const allowedOrigins = [
+    process.env.FRONTEND_URL || 'http://localhost:4200',
+    'http://localhost:4200',
+    'http://localhost:4201',
+  ];
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:4200',
+    origin: allowedOrigins,
     credentials: true,
   });
 
   const config = new DocumentBuilder()
     .setTitle('Black Desert Progress Tracker API')
     .setDescription(
-      'API for tracking Black Desert Online character progression',
+      'API para rastrear la progresión de personajes de Black Desert Online',
     )
     .setVersion('1.0')
     .addBearerAuth()
-    .addTag('Health', 'Health check endpoints')
+    .addTag('Health', 'Endpoints de salud')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

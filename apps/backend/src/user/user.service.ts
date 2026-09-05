@@ -29,14 +29,14 @@ export class UserService {
       createUserDto.email,
     );
     if (emailExists) {
-      throw new ConflictException('Email already registered');
+      throw new ConflictException('Email ya registrado');
     }
 
     const usernameExists = await this.userRepository.existsByUsername(
       createUserDto.username,
     );
     if (usernameExists) {
-      throw new ConflictException('Username already taken');
+      throw new ConflictException('Nombre de usuario en uso');
     }
 
     const passwordHash = await bcrypt.hash(createUserDto.password, 12);
@@ -54,7 +54,7 @@ export class UserService {
   async findById(id: string): Promise<User> {
     const user = await this.userRepository.findById(id);
     if (!user) {
-      throw new NotFoundException('User not found');
+      throw new NotFoundException('Usuario no encontrado');
     }
     return user;
   }
@@ -79,13 +79,13 @@ export class UserService {
         updateUserDto.username,
       );
       if (usernameExists) {
-        throw new ConflictException('Username already taken');
+        throw new ConflictException('Nombre de usuario en uso');
       }
     }
 
     const updatedUser = await this.userRepository.update(id, updateUserDto);
     if (!updatedUser) {
-      throw new NotFoundException('User not found after update');
+      throw new NotFoundException('Usuario no encontrado tras actualizar');
     }
     return updatedUser;
   }
